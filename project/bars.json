@@ -1,0 +1,39 @@
+[
+{"bID": 1,
+"name": "The Brass Monkey",
+"address": "Cnr James & Williams Sts, Northbridge WA 6003",
+"phone": "08 9227 9596",
+"email": "brass.monkey.hotel@alhgroup.com.au",
+"website": "http://www.thebrassmonkey.com.au",
+"yearEstablished": 1896,
+"description": "The Brass Monkey is a Perth icon and the most photographed hotel in WA. You’ll understand why when you see it lit up at night, beckoning hungry and thirsty pedestrians to wander in."
+},
+
+{"bID": 2,
+"name": "Little Creatures",
+"address": "40 Mews Rd, Fremantle WA 6160",
+"phone": "08 9430 5555",
+"email": null,
+"website": "https://littlecreatures.com.au",
+"yearEstablished": 2000,
+"description": "On any day of the year (except for that present opening day) come and visit us at our Fremantle Brewery or in Melbourne at our Dining Hall for a pint and a bite to eat."},
+
+{"bID": 3,
+"name": "Mojos Bar",
+"address": "237 Queen Victoria St, North Fremantle WA",
+"phone": "08 9430 4010",
+"email": null,
+"website": "http://www.mojosbar.com.au",
+"yearEstablished": null,
+"description": "Mojos Bar loves live original music seventeen days a week. It loves it local and foreign, hard and soft, new and old, obvious and obscure, friendly and furious... you get the idea."},
+
+{"bID": 4,
+"name": "Five Bar",
+"address": "560 Beaufort St, Mt Lawley WA 6050",
+"phone": "0467 534 267",
+"email": null,
+"website": "http://fivebar.com.au",
+"yearEstablished": null,
+"description": "This is really what our little bar is all about, being able to come down without worrying about bookings and door lists, gather some friends and sharing some tasty food and trying new drinks in a comfortable space."},
+
+]
