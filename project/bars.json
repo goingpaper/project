@@ -16,7 +16,8 @@
 "email": null,
 "website": "https://littlecreatures.com.au",
 "yearEstablished": 2000,
-"description": "On any day of the year (except for that present opening day) come and visit us at our Fremantle Brewery or in Melbourne at our Dining Hall for a pint and a bite to eat."},
+"description": "On any day of the year (except for that present opening day) come and visit us at our Fremantle Brewery or in Melbourne at our Dining Hall for a pint and a bite to eat."
+},
 
 {"bID": 3,
 "name": "Mojos Bar",
@@ -25,7 +26,8 @@
 "email": null,
 "website": "http://www.mojosbar.com.au",
 "yearEstablished": null,
-"description": "Mojos Bar loves live original music seventeen days a week. It loves it local and foreign, hard and soft, new and old, obvious and obscure, friendly and furious... you get the idea."},
+"description": "Mojos Bar loves live original music seventeen days a week. It loves it local and foreign, hard and soft, new and old, obvious and obscure, friendly and furious... you get the idea."
+},
 
 {"bID": 4,
 "name": "Five Bar",
@@ -34,6 +36,7 @@
 "email": null,
 "website": "http://fivebar.com.au",
 "yearEstablished": null,
-"description": "This is really what our little bar is all about, being able to come down without worrying about bookings and door lists, gather some friends and sharing some tasty food and trying new drinks in a comfortable space."}
+"description": "This is really what our little bar is all about, being able to come down without worrying about bookings and door lists, gather some friends and sharing some tasty food and trying new drinks in a comfortable space."
+}
 
 ]
