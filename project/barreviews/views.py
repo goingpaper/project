@@ -1,13 +1,9 @@
 from django.views import generic
 from barreviews.models import *
 
-class IndexView(generic.ListView):
-    template_name = 'barreviews/index.html'
-    context_object_name = 'index'
-
 class BarsView(generic.ListView):
-    template_name = 'barreviews/bars.html'
+    template_name = 'barreviews/index.html'
     context_object_name = 'bars'
     
     def get_queryset(self):
-        return Bar.objects.all()
+        return (x for x in range(0,1)) #Bar.objects.all()
