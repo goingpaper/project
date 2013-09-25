@@ -27,3 +27,10 @@ Carlton & United Breweries
 Carlton Draught		Lager
 Victoria Bitter		Lager
 Pure Blonde		Lager
+
+
+Little Creatures Brewery
+-----------------
+Little Creatures Pale Ale	Ale
+Little Creatures Bright Ale	Ale
+Little Creatures Pilsner	Lager
