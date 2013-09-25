@@ -1,0 +1,56 @@
+[
+{"username": "Colkadome",
+"password": "colkadome_123",
+"firstName": "Joseph",
+"lastName": "Dunne",
+"email": "josephdunne1993@hotmail.com",
+"dateRegistered": "25 September 2013",
+"userType": "A"
+},
+
+{"username": "GoingPaper",
+"password": "goingpaper_123",
+"firstName": "Alex",
+"lastName": "Tonkin",
+"email": null,
+"dateRegistered": "25 September 2013",
+"userType": "A"
+},
+
+{"username": "nrc196",
+"password": "nrc196_123",
+"firstName": "Brendan",
+"lastName": "Pauley",
+"email": "bgp196@gmail.com",
+"dateRegistered": "25 September 2013",
+"userType": "A"
+},
+
+{"username": "MattDawg",
+"password": "mattdawg_123",
+"firstName": "Matthew",
+"lastName": "Pearce",
+"email": null,
+"dateRegistered": "25 September 2013",
+"userType": "A"
+},
+
+{"username": "BeerBabe",
+"password": "beerbabe_123",
+"firstName": "Barry",
+"lastName": "Babeboy",
+"email": "barrybabeboy@hotmail.com",
+"dateRegistered": "26 September 2013",
+"userType": "U"
+},
+
+{"username": "LiquorLamp",
+"password": "liquorlamp_123",
+"firstName": "Larry",
+"lastName": "Linceworth",
+"email": "larrylinceworth@hotmail.com",
+"dateRegistered": "26 September 2013",
+"userType": "U"
+},
+
+]
