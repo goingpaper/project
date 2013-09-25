@@ -17,7 +17,7 @@ password		String
 Fname	  		String
 Lname	  		String
 email		  	String
-dateRegistered	Date
+dateRegistered	    Date
 userType		String
 
 Drink
