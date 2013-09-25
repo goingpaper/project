@@ -2,21 +2,21 @@ Data Dictionary
 
 Bar
 Attribute		Type
-name pk		String
-address		String
-phone			String
-email			String
-website		String
+name pk	  	String
+address	  	String
+phone			  String
+email	  		String
+website	  	String
 yearEstablished	Integer	(represents year)
-description		String
+description	  	String
 
 User
 Attribute		Type
 username pk		String
 password		String
-Fname			String
-Lname			String
-email			String
+Fname	  		String
+Lname	  		String
+email		  	String
 dateRegistered	Date
 userType		String
 
