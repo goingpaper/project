@@ -8,7 +8,7 @@ class Bar(models.Model):
 	phone = models.CharField(max_length=100) # unsure if this is right?????????!!!!!
 	email = models.CharField(max_length=100,blank = True,null = True)
 	website = models.CharField(max_length=100,blank = True,null = True)
-	yearmade = models.DateField(blank=True,null=True)
+	yearEstablished = models.DateField(blank=True,null=True)
 	description = models.CharField(max_length=300,blank = True,null = True)
 	
 class User(models.Model):
@@ -30,7 +30,7 @@ class Drink(models.Model):
 
 class Brewery(models.Model):
 
-	name = name = models.CharField(max_length=100) #not sure
+	name = models.CharField(max_length=100) #not sure
 	
 class ReviewBar(models.Model):
 
