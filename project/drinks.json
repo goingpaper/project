@@ -1,0 +1,26 @@
+[
+
+{"name": "Coopers Sparkling Ale", "type": "Ale", "brewery": "Coopers"},
+{"name": "Coopers Pale Ale", "type": "Ale", "brewery": "Coopers"},
+{"name": "Coopers Best Extra Stout", "type": "Stout", "brewery": "Coopers"},
+{"name": "Coopers Dark Ale", "type": "Ale", "brewery": "Coopers"},
+{"name": "Coopers Premium Lager", "type": "Lager", "brewery": "Coopers"},
+
+{"name": "Tooheys New", "type": "Lager", "brewery": "Tooheys"},
+{"name": "Tooheys Old", "type": "Ale", "brewery": "Tooheys"},
+{"name": "Tooheys Extra Dry", "type": "Lager", "brewery": "Tooheys"},
+
+{"name": "Swan Draught", "type": "Lager", "brewery": "Swan"},
+{"name": "Swan Gold", "type": "Lager", "brewery": "Swan"},
+{"name": "Emu Export", "type": "Lager", "brewery": "Swan"},
+{"name": "Emu Draft", "type": "Lager", "brewery": "Swan"},
+
+{"name": "Carlton Draught", "type": "Lager", "brewery": "Carlton & United"},
+{"name": "Victoria Bitter", "type": "Lager", "brewery": "Carlton & United"},
+{"name": "Pure Blonde", "type": "Lager", "brewery": "Carlton & United"},
+
+{"name": "Little Creatures Pale Ale", "type": "Ale", "brewery": "Little Creatures"},
+{"name": "Little Creatures Bright Ale", "type": "Ale", "brewery": "Little Creatures"},
+{"name": "Little Creatures Pilsner", "type": "Lager", "brewery": "Little Creatures"}
+
+]
