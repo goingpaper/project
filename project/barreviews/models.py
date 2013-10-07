@@ -11,6 +11,9 @@ class Bar(models.Model):
 	yearEstablished = models.DateField(blank=True,null=True)
 	description = models.CharField(max_length=300,blank = True,null = True)
 	
+	def __unicode__(self):
+		return u'%s' % name
+	
 class User(models.Model):
 
 	username = models.CharField(max_length=100) # username compulsory
@@ -21,16 +24,24 @@ class User(models.Model):
 	register_date = models.DateField(blank=True,null=True) 
 	user_type = models.CharField(max_length=100) #compulsory
 	
+	def __unicode__(self):
+		return u'%s' % username
+	
 class Drink(models.Model):
 
-	dID = models.IntegerField() 
 	brewery = models.CharField(max_length=100) 
-	type = models.CharField(max_length=100) 
+	dtype = models.CharField(max_length=100) 
 	name = models.CharField(max_length=100) 
+	
+	def __unicode__(self):
+		return u'%s' % name
 
 class Brewery(models.Model):
 
 	name = models.CharField(max_length=100) #not sure
+	
+	def __unicode__(self):
+		return u'%s' % name
 	
 class ReviewBar(models.Model):
 
@@ -40,11 +51,16 @@ class ReviewBar(models.Model):
 	date = models.DateField()
 	comment = models.CharField(max_length=300)
 	#unable to make a multifield primary key in django
+	def __unicode__(self):
+		return u'%s' % username
 
 class LikesBeer(models.Model):
 	
 	username = models.CharField(max_length=100) 
 	drinkName = models.ForeignKey('Drink')
+	
+	def __unicode__(self):
+		return u'%s' % username
 	
 class Serves(models.Model):
 	
@@ -53,12 +69,18 @@ class Serves(models.Model):
 	onTap = models.BooleanField()
 	price = models.DecimalField(5,2) #max 5 digit number and 2 decimal places
 	
+	def __unicode__(self):
+		return u'%s serves %s' % (barName , drinkName)
+	
 class Comment(models.Model):
 
 	user1 = models.ForeignKey('User')
 	user2 = models.ForeignKey('User')
 	date = models.DateField()
 	comment = models.CharField(max_length=300)
+	
+	def __unicode__(self):
+		return u'%s comments on %s' % (user1,user2)
 	
 
 	
