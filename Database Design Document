@@ -1,5 +1,9 @@
 Database Design Document
 
-The database design encapsulates a bar and beer information network that is accessed and modified by users through a web interface. The design allows users to log in to the network and view information/review various bars in the area. Users can also ‘Like’ beers, and in turn see what bars serve the drinks they like.
+The database design encapsulates a bar and beer information network that is accessed and modified by users through a web interface provided by Django.
+
+The design allows users to log in to the network and view information/review various bars in the area. Users can ‘Like’ beers, and in turn see what bars serve the drinks they like. Users can also review bars, which include a rating of 0 to 5 stars and a comment. Each user has a profile page which contains contact information and a record of their activity on the website.
+
+Admins have special privileges, allowing them to insert, change or delete any part of the database.
 
 The database is designed as a relational database with Django to provide a web interface to the database. In creating the schema for the database, the data was designed using a UML diagram and separated into tables that are only linked via primary keys in relationship classes. This was to avoid BCNF violations that could cause repetition and anomalies amongst the data.
