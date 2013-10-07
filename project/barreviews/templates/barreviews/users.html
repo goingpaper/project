@@ -1,0 +1,34 @@
+{% extends 'barreviews/base.html' %}
+{% block content %}
+<h1>All Users</h1>
+{% if users %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <!--User Attributes
+            <th>Time</th>
+            <th>Car</th>
+            <th>Driver</th>
+            <th>Episode</th>
+            <th>Conditions</th>
+            <th>Comment</th>-->
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <!--User Attributes
+            <td>{{ lap.time_str }}</td>
+            <td>{{ lap.car }}</td>
+            <td>{{ lap.driver }}</td>
+            <td>{{ lap.episode }}</td>
+            <td>{{ lap.condition }}</td>
+            <td>{{ lap.comment }}</td>-->
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No users are available.</p>
+{% endif %}
+{% endblock %}
