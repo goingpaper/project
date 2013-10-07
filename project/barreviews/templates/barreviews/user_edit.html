@@ -1,0 +1,11 @@
+{% extends 'barreviews/base.html' %}
+{% block content %}
+<h1>Edit User</h1>
+<form method="post" action="{% url 'barreviews:user_edit' form.instance.id %}">
+    {% csrf_token %}
+    <table>
+        {{form}}
+    </table>
+    <input type="submit" value="Edit User"/>
+</form>
+{% endblock %}
