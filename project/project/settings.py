@@ -111,7 +111,8 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
-    'barreviews'
+    'barreviews',
+    'django.contrib.auth'
 )
 
 # A sample logging configuration. The only tangible logging
