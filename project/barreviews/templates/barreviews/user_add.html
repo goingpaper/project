@@ -1,0 +1,11 @@
+{% extends 'barreviews/base.html' %}
+{% block content %}
+<h1>New User</h1>
+<form method="post" action="{% url 'barreviews:user_add' %}">
+    {% csrf_token %}
+    <table>
+        {{form}}
+    </table>
+    <input type="submit" value="Add User"/>
+</form>
+{% endblock %}
