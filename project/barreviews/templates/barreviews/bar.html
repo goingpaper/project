@@ -1,0 +1,31 @@
+{% extends 'barreviews/base.html' %}
+{% block content %}
+    <h1>Bar: {{ bar }}</h1>
+    <p>
+        <strong>Name:</strong> {{ bar.name }}
+    </p>
+    <p>
+        <strong>Address:</strong> {{ bar.address }}
+    </p>
+    <p>
+        <strong>Phone:</strong> {{ bar.phone|default:"" }}
+    </p>
+    <p>
+        <strong>Email:</strong> {{ bar.email|default:"" }}
+    </p>
+    <p>
+        <strong>Website:</strong> {{ bar.website|default:"" }}
+    </p>
+    <p>
+        <strong>Year Established:</strong> {{ bar.yearEstablished|default:"" }}
+    </p>
+    <p>
+        <strong>Description:</strong> {{ bar.description|default:"" }}
+    </p>
+<p>
+<a href="{% url 'barreviews:bar_edit' bar.id %}">Edit Bar</a>
+</p>
+<p>
+<a href="{% url 'barreviews:bar_delete' bar.id %}">Delete Bar</a>
+</p>
+{% endblock %}
