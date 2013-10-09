@@ -1,0 +1,22 @@
+{% extends 'barreviews/base.html' %}
+{% block content %}
+    <h1>Drink: {{ review }}</h1>
+    <p>
+        <strong>Name:</strong> {{ review.username }}
+    </p>
+    <p>
+        <strong>Review Date:</strong> {{ review.date }}
+    </p>
+    <p>
+        <strong>Rating:</strong> {{ review.rating }}
+    </p>
+    <p>
+        <strong>Comment:</strong> {{ review.comment|default:"" }}
+    </p>
+<p>
+<a href="{% url 'barreviews:review_edit' review.id %}">Edit Review</a>
+</p>
+<p>
+<a href="{% url 'barreviews:review_delete' review.id %}">Delete Review</a>
+</p>
+{% endblock %}
