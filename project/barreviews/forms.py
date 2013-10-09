@@ -13,3 +13,7 @@ class DrinkForm(forms.ModelForm):
 class UserForm(forms.ModelForm):
     class Meta:
         model = User
+
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
