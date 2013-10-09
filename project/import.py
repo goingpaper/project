@@ -23,6 +23,11 @@ for bar in bars_doc:
 	email = bar.get('email'),
 	website = bar.get('website'),
 	yearEstablished = bar.get('yearEstablished'),
-	description = bar.get('description')
+	description = bar.get('description'))
+	bar.full_clean()
+	bar.save()
+
+with open(
+	
 
 	

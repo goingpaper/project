@@ -7,7 +7,7 @@ class Bar(models.Model):
 	phone = models.CharField(max_length=100,blank = True,null = True)
 	email = models.CharField(max_length=100,blank = True,null = True)
 	website = models.CharField(max_length=100,blank = True,null = True)
-	yearEstablished = models.DateField(blank=True,null=True)
+	yearEstablished = models.IntegerField(blank=True,null=True)
 	description = models.CharField(max_length=300,blank = True,null = True)
 	
 	def __unicode__(self):
