@@ -25,16 +25,13 @@ urlpatterns = patterns('',
                        url(r'^user/(?P<pk>\d+)/$', views.UserView.as_view(), name='user'),
                        url(r'^user/add/$', views.user_add, name='user_add'),
                        url(r'^user/(?P<pk>\d+)/edit/$', views.user_edit, name='user_edit'),
-<<<<<<< HEAD
-                       url(r'^user/(?P<pk>\d+)/delete/$', views.user_delete, name='user_delete')
-                       #(r'^accounts/login/$',  login),
-                       #(r'^accounts/logout/$', logout)
-=======
                        url(r'^user/(?P<pk>\d+)/delete/$', views.user_delete, name='user_delete'),
+                       
+                       #(r'^accounts/login/$',  login),
+                       #(r'^accounts/logout/$', logout),
                        
                        url(r'^review/(?P<pk>\d+)/$', views.ReviewView.as_view(), name='review'),
                        url(r'^review/add/$', views.review_add, name='review_add'),
                        url(r'^review/(?P<pk>\d+)/edit/$', views.review_edit, name='review_edit'),
                        url(r'^review/(?P<pk>\d+)/delete/$', views.review_delete, name='review_delete')
->>>>>>> 221b84a8bcda8f48e92d1832c12456a168f44300
                        )
