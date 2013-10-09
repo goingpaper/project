@@ -49,15 +49,15 @@ class ReviewBar(models.Model):
 	def __unicode__(self):
 		return self.username
 
-    class Meta:
-        unique_together = ('username', 'barName', 'date')
+	class Meta:
+		unique_together = ('username', 'barName', 'date')
 
 class LikesBeer(models.Model):
 	username = models.CharField(max_length=100)
 	drinkName = models.ForeignKey(Drink)
-	
-    class Meta:
-    unique_together = ('username', 'drinkName')
+
+	class Meta:
+		unique_together = ('username', 'drinkName')
     
 	def __unicode__(self):
 		return self.username
@@ -71,8 +71,8 @@ class Serves(models.Model):
 	def __unicode__(self):
 		return '%s serves %s' % (self.barName , self.drinkName)
 
-    class Meta:
-        unique_together = ('barName', 'drinkName')
+	class Meta:
+		unique_together = ('barName', 'drinkName')
 
 	
 class Comment(models.Model):
@@ -84,8 +84,8 @@ class Comment(models.Model):
 	def __unicode__(self):
 		return '%s comments on %s' % (self.user1, self.user2)
 
-    class Meta:
-            unique_together = ('user1', 'user2','date')
+	class Meta:
+		unique_together = ('user1', 'user2','date')
 #max 5 digit number and 2 decimal places
 
 	
