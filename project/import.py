@@ -4,6 +4,7 @@ from django.core.exceptions import ValidationError
 from django.db import utils
 from barreviews.models import Bar, User, Drink, Brewery, ReviewBar, LikesBeer, Serves, Comment
 
+#errors
 Bar.objects.all().delete()
 User.objects.all().delete()
 Drink.objects.all().delete()
@@ -45,8 +46,8 @@ with open('serves.json') as f:
 
 for serve in serves_doc:
 	
-	serve = Serves(bar = serve.get('bID'),
-				   drink = serve.get('dID'),
+	serve = Serves(bar = Bar.objects.get(name=serve.get('bID')),
+				   drink = Drink.objects.get(name=serve.get('dID')),
 				   onTap = serve.get('onTap'),
 				   price = serve.get('Price'))
 	serve.full_clean()
