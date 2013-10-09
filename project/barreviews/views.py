@@ -93,7 +93,7 @@ def bar_edit(request, pk):
 def bar_delete(request, pk):
 	instance = Bar.objects.get(pk=pk)
 	instance.delete()
-	return redirect('laptimes:bars')
+	return redirect('barreviews:bars')
 
 class DrinkView(generic.DetailView):
 	model = Drink
@@ -123,7 +123,7 @@ def drink_edit(request, pk):
 def drink_delete(request, pk):
 	instance = Drink.objects.get(pk=pk)
 	instance.delete()
-	return redirect('laptimes:drinks')
+	return redirect('barreviews:drinks')
 
 class UserView(generic.DetailView):
 	model = User
@@ -153,4 +153,34 @@ def user_edit(request, pk):
 def user_delete(request, pk):
 	instance = User.objects.get(pk=pk)
 	instance.delete()
-	return redirect('laptimes:users')
+	return redirect('barreviews:users')
+	
+class ReviewView(generic.DetailView):
+	model = Review
+	template_name = 'barreviwes/review.html'
+
+def review_add(request):
+	if request.method == "POST":
+		form = ReviewForm(request.POST)
+		if form.is_valid():
+			review = form.save()
+			return redirect('barreviews:review', pk=review.id)
+	else:
+		form = ReviewForm()
+	return render(request, 'barreviews/review_add.html', {'form': form})
+
+def review_edit(request, pk):
+	instance = Review.objects.get(pk=pk)
+	if request.method == "POST":
+		form = ReviewForm(request.POST, instance = instance)
+		if form.is_valid():
+			review = form.save()
+			return redirect('barreviews:review', pk=review.id)
+	else:
+		form = ReviewForm(instance = instance)
+	return render(request, 'barreviews/review_edit.html', {'form': form})
+
+def review_delete(request, pk):
+	instance = Review.objects.get(pk=pk)
+	instance.delete()
+	return redirect('barreviews:reviews')
