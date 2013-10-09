@@ -8,12 +8,12 @@
         <strong>Type:</strong> {{ drink.type }}
     </p>
     <p>
-        <strong>Brewery:</strong> {{ drink.brewery|default:"" }}
+        <strong>Brewery:</strong> {{ drink.brewery }}
     </p>
 <p>
-<a href="{% url 'barreviews:bar_edit' bar.id %}">Edit Bar</a>
+<a href="{% url 'barreviews:drink_edit' drink.id %}">Edit Drink</a>
 </p>
 <p>
-<a href="{% url 'barreviews:bar_delete' bar.id %}">Delete Bar</a>
+<a href="{% url 'barreviews:drink_delete' drink.id %}">Delete Drink</a>
 </p>
 {% endblock %}
