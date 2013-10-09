@@ -5,25 +5,23 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <!--Bar Attributes
-            <th>Time</th>
-            <th>Car</th>
-            <th>Driver</th>
-            <th>Episode</th>
-            <th>Conditions</th>
-            <th>Comment</th>-->
+            <th>Name</th>
+            <th>Address</th>
+            <th>Website</th>
+            <th>Link</th>
+            <th>Edit Bar</th>
+            <th>Delete Bar</th>
         </tr>
     </thead>
     <tbody>
         {% for bar in bars %}
         <tr>
-            <!--Bar Attributes
-            <td>{{ lap.time_str }}</td>
-            <td>{{ lap.car }}</td>
-            <td>{{ lap.driver }}</td>
-            <td>{{ lap.episode }}</td>
-            <td>{{ lap.condition }}</td>
-            <td>{{ lap.comment }}</td>-->
+            <td>{{ bar.name }}</td>
+            <td>{{ bar.address }}</td>
+            <td>{{ bar.website }}</td>
+            <td><a href="{% url 'barreviews:bar' bar.id %}">Link</a></td>
+            <td><a href="{% url 'barreviews:bar_edit' bar.id %}">Edit</a></td>
+            <td><a href="{% url 'barreviews:bar_delete' bar.id %}">Delete</a></td>
         </tr>
         {% endfor %}
     </tbody>
