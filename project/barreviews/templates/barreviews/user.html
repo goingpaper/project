@@ -14,15 +14,15 @@
         <strong>Email:</strong> {{ user.email }}
     </p>
     <p>
-        <strong>Date Joined:</strong> {{ user.register_date|default:"" }}
+        <strong>Date Joined:</strong> {{ user.register_date }}
     </p>
     <p>
         <strong>User Type:</strong> {{ user.type }}
     </p>
 <p>
-<a href="{% url 'barreviews:user_edit' user.id %}">Edit Bar</a>
+<a href="{% url 'barreviews:user_edit' user.id %}">Edit User</a>
 </p>
 <p>
-<a href="{% url 'barreviews:user_delete' user.id %}">Delete Bar</a>
+<a href="{% url 'barreviews:user_delete' user.id %}">Delete User</a>
 </p>
 {% endblock %}
