@@ -41,7 +41,7 @@ class Brewery(models.Model):
 	
 class ReviewBar(models.Model):
 	user = models.ForeignKey(User) # ? constraints
-	barName = models.ForeignKey(Bar) # ? constraints
+	bar = models.ForeignKey(Bar) # ? constraints
 	rating = models.IntegerField() #?
 	date = models.DateField()
 	comment = models.CharField(max_length=300)
@@ -54,7 +54,7 @@ class ReviewBar(models.Model):
 
 class LikesBeer(models.Model):
 	username = models.CharField(max_length=100)
-	drinkName = models.ForeignKey(Drink)
+	drink = models.ForeignKey(Drink)
 
 	class Meta:
 		unique_together = ('username', 'drinkName')
@@ -63,8 +63,8 @@ class LikesBeer(models.Model):
 		return self.username
 
 class Serves(models.Model):
-	barName = models.ForeignKey(Bar)
-	drinkName = models.ForeignKey(Drink)
+	bar = models.ForeignKey(Bar)
+	drink = models.ForeignKey(Drink)
 	onTap = models.BooleanField()
 	price = models.DecimalField(max_digits=5,decimal_places=2)
 

@@ -44,9 +44,9 @@ with open('serves.json') as f:
 	serves_doc = json.load(f)
 
 for serve in serves_doc:
-
-	serve = Serves(barName = serve.get('bID'),
-				   drinkName = serve.get('dID'),
+	
+	serve = Serves(bar = serve.get('bID'),
+				   drink = serve.get('dID'),
 				   onTap = serve.get('onTap'),
 				   price = serve.get('Price'))
 	serve.full_clean()
