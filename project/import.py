@@ -17,6 +17,7 @@ with open('bars.json') as f:
 	bars_doc = json.load(f)
 	
 for bar in bars_doc:
+	
 	bar = Bar(name = bar.get('name'),
 	address = bar.get('address'),
 	phone = bar.get('phone'),
@@ -27,7 +28,34 @@ for bar in bars_doc:
 	bar.full_clean()
 	bar.save()
 
-with open(
+with open('drinks.json') as f:
+	drinks_doc = json.load(f)
+
+for drink in drinks_doc:
+	
+	drink = Drink(brewery=drink.get('brewery'),
+				  dType=drink.get('type'),
+				  name = drink.get('name'))
+	
+	drink.full_clean()
+	drink.save()
+
+with open('serves.json') as f:
+	serves_doc = json.load(f)
+
+for serve in serves_doc:
+
+	serve = Serves(barName = serve.get('bID'),
+				   drinkName = serve.get('dID'),
+				   onTap = serve.get('onTap'),
+				   price = serve.get('Price'))
+	serve.full_clean()
+	serve.save()
+
+
+	
+
+	
 	
 
 	
