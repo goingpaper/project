@@ -40,7 +40,7 @@ class Brewery(models.Model):
 		return self.name
 	
 class ReviewBar(models.Model):
-	username = models.ForeignKey(User) # ? constraints
+	user = models.ForeignKey(User) # ? constraints
 	barName = models.ForeignKey(Bar) # ? constraints
 	rating = models.IntegerField() #?
 	date = models.DateField()
