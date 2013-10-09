@@ -11,7 +11,7 @@ Brewery.objects.all().delete()
 ReviewBar.objects.all().delete()
 LikesBeer.objects.all().delete()
 Serves.objects.all().delete()
-Commet.objects.all().delete()
+Comment.objects.all().delete()
 
 with open('bars.json') as f:
 	bars_doc = json.load(f)
