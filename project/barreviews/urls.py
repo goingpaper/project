@@ -2,6 +2,7 @@ from django.conf.urls import patterns, include, url
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import RedirectView
 from barreviews import views
+from django.contrib.auth.views import login, logout
 
 urlpatterns = patterns('',
                        url(r'^$', RedirectView.as_view(url=reverse_lazy('barreviews:index')), name='indexr'),
@@ -25,4 +26,6 @@ urlpatterns = patterns('',
                        url(r'^user/add/$', views.user_add, name='user_add'),
                        url(r'^user/(?P<pk>\d+)/edit/$', views.user_edit, name='user_edit'),
                        url(r'^user/(?P<pk>\d+)/delete/$', views.user_delete, name='user_delete')
+                       #(r'^accounts/login/$',  login),
+                       #(r'^accounts/logout/$', logout)
                        )
