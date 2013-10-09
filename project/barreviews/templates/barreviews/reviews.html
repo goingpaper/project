@@ -5,25 +5,23 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <!--User Attributes
-            <th>Time</th>
-            <th>Car</th>
-            <th>Driver</th>
-            <th>Episode</th>
-            <th>Conditions</th>
-            <th>Comment</th>-->
+            <th>Review By</th>
+            <th>Date</th>
+            <th>Rating</th>
+            <th>Link</th>
+            <th>Edit Review</th>
+            <th>Delete Review</th>
         </tr>
     </thead>
     <tbody>
         {% for review in reviews %}
         <tr>
-            <!--User Attributes
-            <td>{{ lap.time_str }}</td>
-            <td>{{ lap.car }}</td>
-            <td>{{ lap.driver }}</td>
-            <td>{{ lap.episode }}</td>
-            <td>{{ lap.condition }}</td>
-            <td>{{ lap.comment }}</td>-->
+            <td>{{ review.user.username }}</td>
+            <td>{{ review.date }}</td>
+            <td>{{ review.rating }}</td>
+            <td><a href="{% url 'barreviews:review' review.id %}">Link</a></td>
+            <td><a href="{% url 'barreviews:review_edit' review.id %}">Edit</a></td>
+            <td><a href="{% url 'barreviews:review_delete' review.id %}">Delete</a></td>
         </tr>
         {% endfor %}
     </tbody>

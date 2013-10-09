@@ -2,12 +2,12 @@ from django.db import models
 
 # Create your models here.
 class Bar(models.Model):
-	name = models.CharField(max_length=100) # bar name is not null and is not empty
-	address = models.CharField(max_length=100,blank = True,null = True) # address can be empty or null
-	phone = models.CharField(max_length=100) # unsure if this is right?????????!!!!!
+	name = models.CharField(max_length=100)
+	address = models.CharField(max_length=100)
+	phone = models.CharField(max_length=100,blank = True,null = True)
 	email = models.CharField(max_length=100,blank = True,null = True)
 	website = models.CharField(max_length=100,blank = True,null = True)
-	yearEstablished = models.DateField(blank=True,null=True)
+	yearEstablished = models.IntegerField(blank=True,null=True)
 	description = models.CharField(max_length=300,blank = True,null = True)
 	
 	def __unicode__(self):
@@ -19,15 +19,15 @@ class User(models.Model):
 	fname = models.CharField(max_length=100) # fname compulsory
 	lname = models.CharField(max_length=100) # lname compulsory
 	email = models.CharField(max_length=100) # email compulsory
-	register_date = models.DateField(blank=True,null=True)
-	user_type = models.CharField(max_length=100) #compulsory
+	dateRegistered = models.DateField()
+	userType = models.CharField(max_length=100) #compulsory
 	
 	def __unicode__(self):
 		return self.username
 	
 class Drink(models.Model):
 	brewery = models.CharField(max_length=100)
-	dtype = models.CharField(max_length=100)
+	dType = models.CharField(max_length=100)
 	name = models.CharField(max_length=100)
 	
 	def __unicode__(self):
@@ -40,8 +40,8 @@ class Brewery(models.Model):
 		return self.name
 	
 class ReviewBar(models.Model):
-	username = models.ForeignKey(User) # ? constraints
-	barName = models.ForeignKey(Bar) # ? constraints
+	user = models.ForeignKey(User) # ? constraints
+	bar = models.ForeignKey(Bar) # ? constraints
 	rating = models.IntegerField() #?
 	date = models.DateField()
 	comment = models.CharField(max_length=300)
@@ -49,27 +49,30 @@ class ReviewBar(models.Model):
 	def __unicode__(self):
 		return self.username
 
+	class Meta:
+		unique_together = ('username', 'barName', 'date')
+
 class LikesBeer(models.Model):
 	username = models.CharField(max_length=100)
-	drinkName = models.ForeignKey(Drink)
-	
-#class Meta:
-#unique_together = ('username', 'drinkName')
+	drink = models.ForeignKey(Drink)
+
+	class Meta:
+		unique_together = ('username', 'drinkName')
     
 	def __unicode__(self):
 		return self.username
 
 class Serves(models.Model):
-	barName = models.ForeignKey(Bar)
-	drinkName = models.ForeignKey(Drink)
+	bar = models.ForeignKey(Bar)
+	drink = models.ForeignKey(Drink)
 	onTap = models.BooleanField()
 	price = models.DecimalField(max_digits=5,decimal_places=2)
 
 	def __unicode__(self):
 		return '%s serves %s' % (self.barName , self.drinkName)
 
-#class Meta:
-#     unique_together = ('', '')
+	class Meta:
+		unique_together = ('barName', 'drinkName')
 
 	
 class Comment(models.Model):
@@ -81,7 +84,8 @@ class Comment(models.Model):
 	def __unicode__(self):
 		return '%s comments on %s' % (self.user1, self.user2)
 
-
+	class Meta:
+		unique_together = ('user1', 'user2','date')
 #max 5 digit number and 2 decimal places
 
 	

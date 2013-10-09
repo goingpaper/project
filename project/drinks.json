@@ -21,6 +21,23 @@
 
 {"name": "Little Creatures Pale Ale", "type": "Ale", "brewery": "Little Creatures"},
 {"name": "Little Creatures Bright Ale", "type": "Ale", "brewery": "Little Creatures"},
-{"name": "Little Creatures Pilsner", "type": "Lager", "brewery": "Little Creatures"}
+{"name": "Little Creatures Pilsner", "type": "Lager", "brewery": "Little Creatures"},
+{"name": "White Rabbit White Ale", "type": "Ale", "brewery": "Little Creatures"},
+{"name": "White Rabbit Dark Ale", "type": "Ale", "brewery": "Little Creatures"},
+ 
+{"name": "Cheeky Rascal Apple Cider", "type": "Cider", "brewery": "Rebello"},
+{"name": "Cheeky Rascal Raspberry and Apple Cider", "type": "Cider", "brewery": "Rebello"},
+{"name": "Cheeky Rascal Summerberry Cider", "type": "Cider", "brewery": "Rebello"},
+{"name": "Cheeky Rascal Strawberry and Pear Cider", "type": "Cider", "brewery": "Rebello"},
+ 
+{"name": "Sail and Anchor Boas Bind Amber Ale", "type": "Ale", "brewery": "Sail and Anchor"},
+{"name": "Sail and Anchor Cats Shank Kolsch", "type": "Kolsch", "brewery": "Sail and Anchor"},
+{"name": "Sail and Anchor Larks Foot Golden Ale", "type": "Ale", "brewery": "Sail and Anchor"},
+{"name": "Sail and Anchor Monkeys Fist Pale Ale", "type": "Ale", "brewery": "Sail and Anchor"},
+ 
+{"name": "James Squire Golden Ale", "type": "Ale", "brewery": "James Squire"},
+{"name": "James Squire 150 Lashes Pale Ale", "type": "Ale", "brewery": "James Squire"},
+{"name": "James Squire Nine Tails Amber Ale", "type": "Ale", "brewery": "James Squire"},
+{"name": "James Squire Jack of Spades Porter", "type": "Ale", "brewery": "James Squire"}
 
 ]
