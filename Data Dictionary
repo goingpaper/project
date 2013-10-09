@@ -1,65 +1,69 @@
 Data Dictionary
 
 Bar
-Attribute		Type
-name pk	  	String
-address	  	String
-phone			  String
-email	  		String
-website	  	String
-yearEstablished	Integer	(represents year)
-description	  	String
+---------------------------------
+name pk	  		String
+address	  		String
+phone			String (optional)
+email	  		String (optional)
+website	  		String (optional)
+yearEstablished		Integer (optional)
+description	  	String (optional)
+
 
 User
-Attribute		Type
+---------------------------------
 username pk		String
-password		String
-Fname	  		String
-Lname	  		String
+password 		String
+fname	  		String
+lname	  		String
 email		  	String
-dateRegistered	    Date
+dateRegistered	   	 Date
 userType		String
 
+
 Drink
-Attribute		Type
-name pk		String
+---------------------------------
+name pk			String
 type			String
-brewery		String
+brewery			String
+
 
 Brewery
-Attribute		Type
-Name pk		String
+---------------------------------
+name pk			String
+
 
 ReviewBar
-Attribute		Type
-username		String		Foreign key User.username
-barName		String		Foreign key Bar.name
+---------------------------------
+user			User
+bar			Bar
 rating			Integer	between 0 – 5
 date			Date
-comment		String
-Primary Key(username, barName, date)
+comment			String
+Primary Key(user, bar, date)
+
 
 LikesBeer
-Attribute		Type
-username		String
-drinkName		String		Foreign key Drink.name
+---------------------------------
+user			User
+drink			Drink
 Primary Key(username, drinkName)
 
 
 Serves
-Attribute		Type
-barName		String		Foreign key Bar.name
-drinkName		String		Foreign key Drink.name
+---------------------------------
+bar			Bar
+drink			Drink
 onTap			Boolean
 price			Real
-Primary Key(barName, drinkName)
+Primary Key(bar, drink)
 
 
 Comment
-Attribute		Type
-user1			String		Foreign key User.username
-user2			String		Foreign key User.username
+---------------------------------
+user1			User
+user2			User
 date			Date
-comment		String
+comment			String
 Primary Key(user1, user2, date)
-
