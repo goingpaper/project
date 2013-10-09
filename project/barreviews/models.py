@@ -19,16 +19,16 @@ class User(models.Model):
 	fname = models.CharField(max_length=100) # fname compulsory
 	lname = models.CharField(max_length=100) # lname compulsory
 	email = models.CharField(max_length=100) # email compulsory
-	register_date = models.DateField(blank=True,null=True) 
+	register_date = models.DateField(blank=True,null=True)
 	user_type = models.CharField(max_length=100) #compulsory
 	
 	def __unicode__(self):
 		return self.username
 	
 class Drink(models.Model):
-	brewery = models.CharField(max_length=100) 
-	dtype = models.CharField(max_length=100) 
-	name = models.CharField(max_length=100) 
+	brewery = models.CharField(max_length=100)
+	dtype = models.CharField(max_length=100)
+	name = models.CharField(max_length=100)
 	
 	def __unicode__(self):
 		return self.name
@@ -40,46 +40,41 @@ class Brewery(models.Model):
 		return self.name
 	
 class ReviewBar(models.Model):
-	username = models.ForeignKey('User') # ? constraints
-	barName = models.ForeignKey('Bar') # ? constraints
+	username = models.ForeignKey(User) # ? constraints
+	barName = models.ForeignKey(Bar) # ? constraints
 	rating = models.IntegerField() #?
 	date = models.DateField()
 	comment = models.CharField(max_length=300)
-	#unable to make a multifield primary key in django
+#unable to make a multifield primary key in django
 	def __unicode__(self):
 		return self.username
 
 class LikesBeer(models.Model):
-	username = models.CharField(max_length=100) 
-	drinkName = models.ForeignKey('Drink')
+	username = models.CharField(max_length=100)
+	drinkName = models.ForeignKey(Drink)
 	
-    #class Meta:
-        #unique_together = ('username', 'drinkName')
+#class Meta:
+#unique_together = ('username', 'drinkName')
     
 	def __unicode__(self):
 		return self.username
 
 class Serves(models.Model):
-	barName = models.ForeignKey('Bar')
-	drinkName = models.ForeignKey('Drink')
+	barName = models.ForeignKey(Bar)
+	drinkName = models.ForeignKey(Drink)
 	onTap = models.BooleanField()
-	price = models.DecimalField(5,2)
-    
-    def __unicode__(self):
-        return self.barName
+	price = models.DecimalField(max_digits=5,decimal_places=2)
 
+	def __unicode__(self):
+		return '%s serves %s' % (self.barName , self.drinkName)
 
-#errors
-	#def __unicode__(self):
-#   return '%s serves %s' % (self.barName , self.drinkName)
-            
-            #class Meta:
-#unique_together = ('season', 'episode')
-        
+#class Meta:
+#     unique_together = ('', '')
+
 	
 class Comment(models.Model):
-	user1 = models.ForeignKey('User',related_name = 'source')
-	user2 = models.ForeignKey('User',related_name = 'target')
+	user1 = models.ForeignKey(User,related_name = 'source')
+	user2 = models.ForeignKey(User,related_name = 'target')
 	date = models.DateField()
 	comment = models.CharField(max_length=300)
     
