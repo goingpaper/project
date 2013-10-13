@@ -27,8 +27,11 @@ urlpatterns = patterns('',
                        url(r'^user/(?P<pk>\d+)/edit/$', views.user_edit, name='user_edit'),
                        url(r'^user/(?P<pk>\d+)/delete/$', views.user_delete, name='user_delete'),
                        
-                       #(r'^accounts/login/$',  login),
-                       #(r'^accounts/logout/$', logout),
+                       (r'^accounts/login/$',  views.login),
+                       (r'^accounts/auth/$', views.auth_view),
+                       (r'^accounts/logout/$', views.logout),
+                       (r'^accounts/loggedin/$', views.loggedin),
+                       (r'^accounts/invalid/$', views.invalid_login),
                        
                        url(r'^review/(?P<pk>\d+)/$', views.ReviewView.as_view(), name='review'),
                        url(r'^review/add/$', views.review_add, name='review_add'),

@@ -50,14 +50,14 @@ class ReviewBar(models.Model):
 		return self.username
 
 	class Meta:
-		unique_together = ('username', 'barName', 'date')
+		unique_together = ('user', 'bar', 'date')
 
 class LikesBeer(models.Model):
 	username = models.CharField(max_length=100)
 	drink = models.ForeignKey(Drink)
 
 	class Meta:
-		unique_together = ('username', 'drinkName')
+		unique_together = ('username', 'drink')
     
 	def __unicode__(self):
 		return self.username
@@ -72,7 +72,7 @@ class Serves(models.Model):
 		return '%s serves %s' % (self.barName , self.drinkName)
 
 	class Meta:
-		unique_together = ('barName', 'drinkName')
+		unique_together = ('bar', 'drink')
 
 	
 class Comment(models.Model):

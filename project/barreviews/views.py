@@ -1,8 +1,18 @@
 from django.views import generic
 from barreviews.models import *
-from django.contrib.auth import authenticate
+from django.contrib import auth
+from django.shortcuts import render_to_response
+from django.http import HttpResponseRedirect
+from django.core.context_processors import csrf
 
-def login_view(request):
+# Login views
+
+def login(request):
+    c = {}
+    c.update(csrf(request))
+    return render_to_response('login.html',c)
+
+def auth_view(request):
 	username = request.POST.get('username', '')
 	password = request.POST.get('password', '')
 	user = auth.authenticate(username=username, password=password)
@@ -15,18 +25,22 @@ def login_view(request):
 		# Show an error page
 		return HttpResponseRedirect("/account/invalid/")
 
-def logout_view(request):
+def loggedin(request):
+    return render_to_response('users.html',
+                              {'full_name': request.user.username})
+
+def invalid_login(request):
+    return render_to_response('invalid_login.html')
+
+def logout(request):
 	auth.logout(request)
 	# Redirect to a success page.
-	return HttpResponseRedirect("/account/loggedout/")
+	return render_to_response(logout.html)
 
 class IndexView(generic.ListView):
 	template_name = 'barreviews/index.html'
 	context_object_name = 'index'
 
-	
-	
-	
 	def get_queryset(self):
 		return (x for x in range(0,1))
 
@@ -156,7 +170,7 @@ def user_delete(request, pk):
 	return redirect('barreviews:users')
 	
 class ReviewView(generic.DetailView):
-	model = Review
+	model = ReviewBar
 	template_name = 'barreviwes/review.html'
 
 def review_add(request):
