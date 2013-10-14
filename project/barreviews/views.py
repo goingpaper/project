@@ -76,7 +76,7 @@ class ReviewsView(generic.ListView):
 		
 class BarView(generic.DetailView):
 	model = Bar
-	template_name = 'barreviwes/bar.html'
+	template_name = 'barreviews/bar.html'
 
 def bar_add(request):
 	if request.method == "POST":
@@ -106,7 +106,7 @@ def bar_delete(request, pk):
 
 class DrinkView(generic.DetailView):
 	model = Drink
-	template_name = 'barreviwes/drink.html'
+	template_name = 'barreviews/drink.html'
 
 def drink_add(request):
 	if request.method == "POST":
@@ -136,7 +136,7 @@ def drink_delete(request, pk):
 
 class UserView(generic.DetailView):
 	model = User
-	template_name = 'barreviwes/user.html'
+	template_name = 'barreviews/user.html'
 
 def user_add(request):
 	if request.method == "POST":
@@ -166,7 +166,7 @@ def user_delete(request, pk):
 	
 class ReviewView(generic.DetailView):
 	model = ReviewBar
-	template_name = 'barreviwes/review.html'
+	template_name = 'barreviews/review.html'
 
 def review_add(request):
 	if request.method == "POST":

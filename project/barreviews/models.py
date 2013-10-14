@@ -14,18 +14,6 @@ class Bar(models.Model):
 	def __unicode__(self):
 		return self.name
 	
-    #class User(models.Model):
-    #	username = models.CharField(max_length=100) # username compulsory
-    #	password = models.CharField(max_length=100) # password compulsory
-    #	fname = models.CharField(max_length=100) # fname compulsory
-    #	lname = models.CharField(max_length=100) # lname compulsory
-    #	email = models.CharField(max_length=100) # email compulsory
-    #	dateRegistered = models.DateField()
-    #	userType = models.CharField(max_length=100) #compulsory
-    #
-        #	def __unicode__(self):
-#		return self.username
-	
 class Drink(models.Model):
 	brewery = models.CharField(max_length=100)
 	dType = models.CharField(max_length=100)
