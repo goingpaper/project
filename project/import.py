@@ -59,7 +59,18 @@ for serve in serves_doc:
 	serve.full_clean()
 	serve.save()
 
-
+with open('users.json') as f:
+	users_doc = json.load(f)
+	
+for user in users_doc:
+	
+	new_user = User.objects.create_user(user.get('username'),
+					user.get('email'),
+					user.get('password'))
+	new_user.first_name = user.get('firstname') #can do this!!!!!!!
+	new_user.save()
+	#difficult to set more fields
+					
 	
 
 	
