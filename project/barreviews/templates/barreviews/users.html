@@ -21,11 +21,11 @@
         {% for user in users %}
         <tr>
             <td>{{ user.username }}</td>
-            <td>{{ user.fname }}</td>
-            <td>{{ user.lname }}</td>
+            <td>{{ user.first_name }}</td>
+            <td>{{ user.last_name }}</td>
             <td>{{ user.email }}</td>
-            <td>{{ user.dateRegistered }}</td>
-            <td>{{ user.userType }}</td>
+            <td>{{ user.date_joined }}</td>
+            <td>{{ user.is_staff }}</td>
             {% if user.id %}
             <td><a href="{% url 'barreviews:user' user.id %}">Link</a></td>
             <td><a href="{% url 'barreviews:user_edit' user.id %}">Edit</a></td>

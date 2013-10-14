@@ -1,23 +1,23 @@
 {% extends 'barreviews/base.html' %}
 {% block content %}
-    <h1>User: {{ User }}</h1>
+    <h1>User: {{ user }}</h1>
     <p>
         <strong>Username:</strong> {{ user.username }}
     </p>
     <p>
-        <strong>First Name:</strong> {{ user.fname }}
+        <strong>First Name:</strong> {{ user.first_name }}
     </p>
     <p>
-        <strong>Last Name:</strong> {{ user.lname }}
+        <strong>Last Name:</strong> {{ user.last_name }}
     </p>
     <p>
         <strong>Email:</strong> {{ user.email }}
     </p>
     <p>
-        <strong>Date Joined:</strong> {{ user.register_date }}
+        <strong>Date Joined:</strong> {{ user.date_joined }}
     </p>
     <p>
-        <strong>User Type:</strong> {{ user.type }}
+        <strong>User Type:</strong> {{ user.is_staff }}
     </p>
 <p>
 <a href="{% url 'barreviews:user_edit' user.id %}">Edit User</a>

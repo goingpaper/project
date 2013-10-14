@@ -55,13 +55,8 @@ class UsersView(generic.ListView):
 	template_name = 'barreviews/users.html'
 	context_object_name = 'users'
 	
-	def logout_view(request):
-		auth.logout(request)
-		# Redirect to a success page.
-		return HttpResponseRedirect("/account/loggedout/")
-	
 	def get_queryset(self):
-		return (x for x in range(0,1)) #User.objects.all()
+		return User.objects.all()
 
 class DrinksView(generic.ListView):
 	template_name = 'barreviews/drinks.html'
