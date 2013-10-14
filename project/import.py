@@ -6,15 +6,15 @@ from barreviews.models import Bar, User, Drink, Brewery, ReviewBar, LikesBeer, S
 from django.contrib.auth.models import User
 
 #errors
+Serves.objects.all().delete()
+Comment.objects.all().delete()
+LikesBeer.objects.all().delete()
+ReviewBar.objects.all().delete()
 Bar.objects.all().delete()
 User.objects.all().delete()
 Drink.objects.all().delete()
 Brewery.objects.all().delete()
-ReviewBar.objects.all().delete()
-LikesBeer.objects.all().delete()
-Serves.objects.all().delete()
-Comment.objects.all().delete()
-User.objects.all().delete()
+
 
 with open('bars.json') as f:
 	bars_doc = json.load(f)
@@ -35,7 +35,8 @@ with open('drinks.json') as f:
 	drinks_doc = json.load(f)
 
 for drink in drinks_doc:
-	if !Drink.objects.get('brewery'):
+	#drink_exist = Drink.objects.get
+	if not Drink.objects.get(drink.get('brewery')):
 		brewery = Brewery(name=drink.get('brewery'))
 		brewery.fulll_clean()
 		brewery.save()
@@ -68,6 +69,8 @@ for user in users_doc:
 					user.get('email'),
 					user.get('password'))
 	new_user.first_name = user.get('firstname') #can do this!!!!!!!
+	new_user.last_name = user.get('lastname')
+	new_user.date_joined = datetime.str
 	new_user.save()
 	#difficult to set more fields
 					
