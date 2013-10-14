@@ -5,7 +5,7 @@
 "lastName": "Dunne",
 "email": "josephdunne1993@hotmail.com",
 "dateRegistered": "25 September 2013",
-"userType": "A"
+"staff": true
 },
 
 {"username": "GoingPaper",
@@ -14,7 +14,7 @@
 "lastName": "Tonkin",
 "email": null,
 "dateRegistered": "25 September 2013",
-"userType": "A"
+"staff": true
 },
 
 {"username": "nrc196",
@@ -23,7 +23,7 @@
 "lastName": "Pauley",
 "email": "bgp196@gmail.com",
 "dateRegistered": "25 September 2013",
-"userType": "A"
+"staff": true
 },
 
 {"username": "MattDawg",
@@ -32,7 +32,7 @@
 "lastName": "Pearce",
 "email": null,
 "dateRegistered": "25 September 2013",
-"userType": "A"
+"staff": true
 },
 
 {"username": "BeerBabe",
@@ -41,7 +41,7 @@
 "lastName": "Babeboy",
 "email": "barrybabeboy@hotmail.com",
 "dateRegistered": "26 September 2013",
-"userType": "U"
+"staff": false
 },
 
 {"username": "LiquorLamp",
@@ -50,7 +50,7 @@
 "lastName": "Linceworth",
 "email": "larrylinceworth@hotmail.com",
 "dateRegistered": "26 September 2013",
-"userType": "U"
+"staff": false
 }
 
 ]
