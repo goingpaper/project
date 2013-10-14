@@ -36,12 +36,21 @@ with open('drinks.json') as f:
 
 for drink in drinks_doc:
 	#drink_exist = Drink.objects.get
-	if not Drink.objects.get(drink.get('brewery')):
+	try:
+		brew = Brewery.objects.get(name=drink.get('brewery'))
+
+	except Brewery.DoesNotExist:
+
 		brewery = Brewery(name=drink.get('brewery'))
-		brewery.fulll_clean()
+		brewery.full_clean()
 		brewery.save()
 		
-	drink = Drink(brewery=drink.get('brewery'),
+	#if not Brewery.objects.get(name=drink.get('brewery')):
+	#	brewery = Brewery(name=drink.get('brewery'))
+	#	brewery.fulll_clean()
+	#	brewery.save()
+		
+	drink = Drink(brewery=Brewery.objects.get(name=drink.get('brewery')),
 				  dType=drink.get('type'),
 				  name = drink.get('name'))
 	
@@ -52,9 +61,22 @@ with open('serves.json') as f:
 	serves_doc = json.load(f)
 
 for serve in serves_doc:
-	
-	serve = Serves(bar = Bar.objects.get(name=serve.get('bID')),
-				   drink = Drink.objects.get(name=serve.get('dID')),
+	try:
+
+		nbar = Bar.objects.get(name=serve.get('bID'))
+
+	except Bar.DoesNotExist:
+		nbar = None
+
+	try:
+		ndrink = Drink.objects.get(name=serve.get('dID'))
+
+	except Drink.DoesNotExist:
+
+		ndrink = None
+
+	serve = Serves(bar = nbar,
+				   drink = ndrink,
 				   onTap = serve.get('onTap'),
 				   price = serve.get('Price'))
 	serve.full_clean()
@@ -68,9 +90,9 @@ for user in users_doc:
 	new_user = User.objects.create_user(user.get('username'),
 					user.get('email'),
 					user.get('password'))
-	new_user.first_name = user.get('firstname') #can do this!!!!!!!
-	new_user.last_name = user.get('lastname')
-	new_user.date_joined = datetime.str
+	#new_user.first_name = user.get('firstname') #can do this!!!!!!!
+	#new_user.last_name = user.get('lastname')
+	#new_user.date_joined = datetime.str
 	new_user.save()
 	#difficult to set more fields
 					
