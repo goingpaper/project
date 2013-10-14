@@ -20,13 +20,13 @@ def auth_view(request):
 		# Correct password, and the user is marked "active"
 		auth.login(request, user)
 		# Redirect to a success page.
-		return HttpResponseRedirect("/account/loggedin/")
+		return HttpResponseRedirect("/accounts/loggedin/")
 	else:
 		# Show an error page
-		return HttpResponseRedirect("/account/invalid/")
+		return HttpResponseRedirect("/accounts/invalid/")
 
 def loggedin(request):
-    return render_to_response('users.html',
+    return render_to_response('loggedin.html',
                               {'full_name': request.user.username})
 
 def invalid_login(request):
@@ -35,7 +35,7 @@ def invalid_login(request):
 def logout(request):
 	auth.logout(request)
 	# Redirect to a success page.
-	return render_to_response(logout.html)
+	return render_to_response('logout.html')
 
 class IndexView(generic.ListView):
 	template_name = 'barreviews/index.html'

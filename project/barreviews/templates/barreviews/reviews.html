@@ -19,9 +19,15 @@
             <td>{{ review.user.username }}</td>
             <td>{{ review.date }}</td>
             <td>{{ review.rating }}</td>
+            {% if review.id %}
             <td><a href="{% url 'barreviews:review' review.id %}">Link</a></td>
             <td><a href="{% url 'barreviews:review_edit' review.id %}">Edit</a></td>
             <td><a href="{% url 'barreviews:review_delete' review.id %}">Delete</a></td>
+            {% else %}
+            <td><a href="{% url 'barreviews:review' 1 %}">Link</a></td>
+            <td><a href="{% url 'barreviews:review_edit' 1 %}">Edit</a></td>
+            <td><a href="{% url 'barreviews:review_delete' 1 %}">Delete</a></td>
+            {% endif %}
         </tr>
         {% endfor %}
     </tbody>

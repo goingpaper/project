@@ -26,9 +26,15 @@
             <td>{{ user.email }}</td>
             <td>{{ user.dateRegistered }}</td>
             <td>{{ user.userType }}</td>
+            {% if user.id %}
             <td><a href="{% url 'barreviews:user' user.id %}">Link</a></td>
             <td><a href="{% url 'barreviews:user_edit' user.id %}">Edit</a></td>
             <td><a href="{% url 'barreviews:user_delete' user.id %}">Delete</a></td>
+            {% else %}
+            <td><a href="{% url 'barreviews:user' 1 %}">Link</a></td>
+            <td><a href="{% url 'barreviews:user_edit' 1 %}">Edit</a></td>
+            <td><a href="{% url 'barreviews:user_delete' 1 %}">Delete</a></td>
+            {% endif %}
         </tr>
         {% endfor %}
     </tbody>

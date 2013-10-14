@@ -19,9 +19,15 @@
             <td>{{ bar.name }}</td>
             <td>{{ bar.address }}</td>
             <td>{{ bar.website }}</td>
+            {% if bar.id %}
             <td><a href="{% url 'barreviews:bar' bar.id %}">Link</a></td>
             <td><a href="{% url 'barreviews:bar_edit' bar.id %}">Edit</a></td>
             <td><a href="{% url 'barreviews:bar_delete' bar.id %}">Delete</a></td>
+            {% else %}
+            <td><a href="{% url 'barreviews:bar' 1 %}">Link</a></td>
+            <td><a href="{% url 'barreviews:bar_edit' 1 %}">Edit</a></td>
+            <td><a href="{% url 'barreviews:bar_delete' 1 %}">Delete</a></td>
+            {% endif %}
         </tr>
         {% endfor %}
     </tbody>
