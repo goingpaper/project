@@ -141,6 +141,7 @@ def drink_delete(request, pk):
 class UserView(generic.DetailView):
 	model = User
 	template_name = 'barreviews/user.html'
+	context_object_name = 'user_detail'
 
 def user_add(request):
 	if request.method == "POST":
