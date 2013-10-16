@@ -48,7 +48,7 @@
 <p>No reviews by this user.</p>
 {% endif %}
 
-<h3>Likes</h3>
+<h3>Likes - {{ usertemp.likesbeer_set.all.count }}</h3>
 {% if usertemp.likesbeer_set.all %}
 <table class="table table-striped">
     <thead>
