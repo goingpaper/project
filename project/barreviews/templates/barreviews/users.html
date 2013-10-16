@@ -17,17 +17,17 @@
         </tr>
     </thead>
     <tbody>
-        {% for user_single in users %}
+        {% for usertemp in users %}
         <tr>
-            <td><a href="{% url 'barreviews:user' user.id %}">{{ user.username }}</a></td>
-            <td>{{ user.first_name }}</td>
-            <td>{{ user.last_name }}</td>
-            <td>{{ user.email }}</td>
-            <td>{{ user.date_joined }}</td>
-            <td>{{ user.is_staff }}</td>
-            {% if user.id %}
-            <td><a href="{% url 'barreviews:user_edit' user.id %}">Edit</a></td>
-            <td><a href="{% url 'barreviews:user_delete' user.id %}">Delete</a></td>
+            <td><a href="{% url 'barreviews:user' usertemp.id %}">{{ usertemp.username }}</a></td>
+            <td>{{ usertemp.first_name }}</td>
+            <td>{{ usertemp.last_name }}</td>
+            <td>{{ usertemp.email }}</td>
+            <td>{{ usertemp.date_joined }}</td>
+            <td>{{ usertemp.is_staff }}</td>
+            {% if usertemp.id %}
+            <td><a href="{% url 'barreviews:user_edit' usertemp.id %}">Edit</a></td>
+            <td><a href="{% url 'barreviews:user_delete' usertemp.id %}">Delete</a></td>
             {% else %}
             <td><a href="{% url 'barreviews:user_edit' 1 %}">Edit</a></td>
             <td><a href="{% url 'barreviews:user_delete' 1 %}">Delete</a></td>
