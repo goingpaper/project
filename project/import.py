@@ -36,7 +36,7 @@ with open('drinks.json') as f:
 	drinks_doc = json.load(f)
 
 for drink in drinks_doc:
-	#drink_exist = Drink.objects.get
+
 	try:
 		brew = Brewery.objects.get(name=drink.get('brewery'))
 
@@ -46,10 +46,6 @@ for drink in drinks_doc:
 		brewery.full_clean()
 		brewery.save()
 		
-	#if not Brewery.objects.get(name=drink.get('brewery')):
-	#	brewery = Brewery(name=drink.get('brewery'))
-	#	brewery.fulll_clean()
-	#	brewery.save()
 		
 	drink = Drink(brewery=Brewery.objects.get(name=drink.get('brewery')),
 				  dType=drink.get('type'),
@@ -134,7 +130,7 @@ for review in review_doc:
 	review.full_clean()
 	review.save()
 
-with open('likesbeer.json') as f:
+with open('likes_beer.json') as f:
 	likes_doc = json.load(f)
 
 for like in likes_doc:
