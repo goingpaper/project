@@ -8,7 +8,6 @@
             <th>Name</th>
             <th>Type</th>
             <th>Brewery</th>
-            <th>Link</th>
             <th>Edit Drink</th>
             <th>Delete Drink</th>
         </tr>
@@ -16,15 +15,13 @@
     <tbody>
         {% for drink in drinks %}
         <tr>
-            <td>{{ drink.name }}</td>
+            <td><a href="{% url 'barreviews:drink' drink.id %}">{{ drink.name }}</a></td>
             <td>{{ drink.dType }}</td>
             <td>{{ drink.brewery }}</td>
             {% if drink.id %}
-            <td><a href="{% url 'barreviews:drink' drink.id %}">Link</a></td>
             <td><a href="{% url 'barreviews:drink_edit' drink.id %}">Edit</a></td>
             <td><a href="{% url 'barreviews:drink_delete' drink.id %}">Delete</a></td>
             {% else %}
-            <td><a href="{% url 'barreviews:drink' 1 %}">Link</a></td>
             <td><a href="{% url 'barreviews:drink_edit' 1 %}">Edit</a></td>
             <td><a href="{% url 'barreviews:drink_delete' 1 %}">Delete</a></td>
             {% endif %}
