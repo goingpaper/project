@@ -1,7 +1,8 @@
 from django.views import generic
 from barreviews.models import *
+from barreviews.forms import *
 from django.contrib import auth
-from django.shortcuts import render_to_response
+from django.shortcuts import *
 from django.http import HttpResponseRedirect
 from django.core.context_processors import csrf
 
@@ -49,7 +50,8 @@ class BarsView(generic.ListView):
 	context_object_name = 'bars'
 	
 	def get_queryset(self):
-		return (x for x in range(0,1)) #Bar.objects.all()
+		#return (x for x in range(0,1)) 
+		return Bar.objects.all()
 
 class UsersView(generic.ListView):
 	template_name = 'barreviews/users.html'
@@ -63,14 +65,16 @@ class DrinksView(generic.ListView):
 	context_object_name = 'drinks'
 	
 	def get_queryset(self):
-		return (x for x in range(0,1)) #Drink.objects.all()
+		#return (x for x in range(0,1)) #
+		return Drink.objects.all()
 
 class ReviewsView(generic.ListView):
 	template_name = 'barreviews/reviews.html'
 	context_object_name = 'reviews'
 	
 	def get_queryset(self):
-		return (x for x in range(0,1)) #Review.objects.all()
+		#return (x for x in range(0,1)) 
+		return ReviewBar.objects.all()
 		
 #More specific views below
 		
@@ -179,7 +183,7 @@ def review_add(request):
 	return render(request, 'barreviews/review_add.html', {'form': form})
 
 def review_edit(request, pk):
-	instance = Review.objects.get(pk=pk)
+	instance = ReviewBar.objects.get(pk=pk)
 	if request.method == "POST":
 		form = ReviewForm(request.POST, instance = instance)
 		if form.is_valid():
@@ -190,6 +194,6 @@ def review_edit(request, pk):
 	return render(request, 'barreviews/review_edit.html', {'form': form})
 
 def review_delete(request, pk):
-	instance = Review.objects.get(pk=pk)
+	instance = ReviewBar.objects.get(pk=pk)
 	instance.delete()
 	return redirect('barreviews:reviews')

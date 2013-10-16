@@ -14,7 +14,7 @@
         <strong>Comment:</strong> {{ review.comment|default:"" }}
     </p>
 <p>
-<a href="{% url 'barreviews:review_edit' review.id %}">Edit Review</a>
+<a href="{% url 'barreviews:review_edit' review.pk %}">Edit Review</a>
 </p>
 <p>
 <a href="{% url 'barreviews:review_delete' review.id %}">Delete Review</a>

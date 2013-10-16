@@ -16,4 +16,4 @@ class UserForm(forms.ModelForm):
 
 class ReviewForm(forms.ModelForm):
     class Meta:
-        model = Review
+        model = ReviewBar
