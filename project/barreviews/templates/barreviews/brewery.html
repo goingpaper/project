@@ -11,11 +11,12 @@
 <a href="{% url 'barreviews:brewery_delete' brewery.id %}">Delete Brewery</a>
 </p>
 
+<h3>Drinks - {{ brewery.drink_set.all.count }}</h3>
 {% if brewery.drink_set.all %}
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Beers</th>
+            <th>Drink</th>
         </tr>
     </thead>
     <tbody>
