@@ -104,6 +104,8 @@ def bar_edit(request, pk):
 	return render(request, 'barreviews/bar_edit.html', {'form': form})
 
 def bar_delete(request, pk):
+	if not request.user.has_perm('barreviews.delete_bar'):
+		return redirect('barreviews:index')
 	instance = Bar.objects.get(pk=pk)
 	instance.delete()
 	return redirect('barreviews:bars')
