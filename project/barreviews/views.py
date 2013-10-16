@@ -171,6 +171,7 @@ def user_delete(request, pk):
 	
 class ReviewView(generic.DetailView):
 	model = ReviewBar
+	context_object_name = 'review'
 	template_name = 'barreviews/review.html'
 
 def review_add(request):
