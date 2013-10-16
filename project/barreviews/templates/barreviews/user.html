@@ -1,5 +1,31 @@
 {% extends 'barreviews/base.html' %}
 {% block content %}
+<<<<<<< HEAD
+    <h1>User: {{ usertemp }}</h1>
+    <p>
+        <strong>Username:</strong> {{ usertemp.username }}
+    </p>
+    <p>
+        <strong>First Name:</strong> {{ usertemp.first_name }}
+    </p>
+    <p>
+        <strong>Last Name:</strong> {{ usertemp.last_name }}
+    </p>
+    <p>
+        <strong>Email:</strong> {{ usertemp.email }}
+    </p>
+    <p>
+        <strong>Date Joined:</strong> {{ usertemp.date_joined }}
+    </p>
+    <p>
+        <strong>User Type:</strong> {{ usertemp.is_staff }}
+    </p>
+<p>
+<a href="{% url 'barreviews:user_edit' usertemp.id %}">Edit User</a>
+</p>
+<p>
+<a href="{% url 'barreviews:user_delete' usertemp.id %}">Delete User</a>
+=======
     <h1>User: {{ user_detail }}</h1>
     <p>
         <strong>Username:</strong> {{ user_detail.username }}
@@ -24,5 +50,76 @@
 </p>
 <p>
 <a href="{% url 'barreviews:user_delete' user_detail.id %}">Delete User</a>
+>>>>>>> 678ac11a29216f9d45d99e7f46136b5534c9335b
 </p>
+<h3>Reviews</h3>
+{% if usertemp.reviewbar_set.all %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Bar</th>
+            <th>Date</th>
+            <th>Rating</th>
+            <th>Comment</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for r in usertemp.reviewbar_set.all %}
+        <tr>
+            <td><a href="{% url 'barreviews:bar' r.bar.id %}">{{ r.bar.name }}</a></td>
+            <td><a href="{% url 'barreviews:review' r.id %}">{{ r.date }}</td>
+            <td>{{ r.rating }}</td>
+            <td>{{ r.comment }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No reviews by this user.</p>
+{% endif %}
+
+<h3>Likes</h3>
+{% if usertemp.likesbeer_set.all %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Likes drinks</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for d in usertemp.likesbeer_set.all %}
+        <tr>
+            <td><a href="{% url 'barreviews:drink' d.drink.id %}">{{ d.drink.name }}</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>User has liked no drinks.</p>
+{% endif %}
+
+<h3>Comments</h3>
+{% if usertemp.comment_set.all %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>User</th>
+            <th>Date</th>
+            <th>Comment</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for c in usertemp.comment_set.all %}
+        <tr>
+            <td><a href="{% url 'barreviews:user' c.user1.id %}">{{ c.user1.username }}</a></td>
+            <td>{{ c.date }}</td>
+            <td>{{ c.comment }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>User has no comments.</p>
+{% endif %}
+
 {% endblock %}
