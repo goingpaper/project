@@ -1,6 +1,5 @@
 {% extends 'barreviews/base.html' %}
 {% block content %}
-<<<<<<< HEAD
     <h1>User: {{ usertemp }}</h1>
     <p>
         <strong>Username:</strong> {{ usertemp.username }}
@@ -25,32 +24,6 @@
 </p>
 <p>
 <a href="{% url 'barreviews:user_delete' usertemp.id %}">Delete User</a>
-=======
-    <h1>User: {{ user_detail }}</h1>
-    <p>
-        <strong>Username:</strong> {{ user_detail.username }}
-    </p>
-    <p>
-        <strong>First Name:</strong> {{ user_detail.first_name }}
-    </p>
-    <p>
-        <strong>Last Name:</strong> {{ user_detail.last_name }}
-    </p>
-    <p>
-        <strong>Email:</strong> {{ user_detail.email }}
-    </p>
-    <p>
-        <strong>Date Joined:</strong> {{ user_detail.date_joined }}
-    </p>
-    <p>
-        <strong>User Type:</strong> {{ user_detail.is_staff }}
-    </p>
-<p>
-<a href="{% url 'barreviews:user_edit' user_detail.id %}">Edit User</a>
-</p>
-<p>
-<a href="{% url 'barreviews:user_delete' user_detail.id %}">Delete User</a>
->>>>>>> 678ac11a29216f9d45d99e7f46136b5534c9335b
 </p>
 <h3>Reviews</h3>
 {% if usertemp.reviewbar_set.all %}
