@@ -1,9 +1,6 @@
 {% extends 'barreviews/base.html' %}
 {% block content %}
-    <h1>Bar: {{ bar }}</h1>
-    <p>
-        <strong>Name:</strong> {{ bar.name }}
-    </p>
+    <h1>{{ bar }}</h1>
     <p>
         <strong>Address:</strong> {{ bar.address }}
     </p>
@@ -28,4 +25,31 @@
 <p>
 <a href="{% url 'barreviews:bar_delete' bar.id %}">Delete Bar</a>
 </p>
+
+<h3>Reviews</h3>
+{% if bar.reviewbar_set.all %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>User</th>
+            <th>Date</th>
+            <th>Rating</th>
+            <th>Comment</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for r in bar.reviewbar_set.all %}
+        <tr>
+            <td><a href="{% url 'barreviews:user' r.user.id %}">{{ r.user.username }}</td>
+            <td><a href="{% url 'barreviews:review' r.id %}">{{ r.date }}</a></td>
+            <td>{{ r.rating }}</td>
+            <td>{{ r.comment }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No users have reviewed this bar.</p>
+{% endif %}
+
 {% endblock %}
