@@ -141,7 +141,7 @@ def drink_delete(request, pk):
 class UserView(generic.DetailView):
 	model = User
 	template_name = 'barreviews/user.html'
-	context_object_name = 'user_detail'
+	context_object_name = 'usertemp'
 
 def user_add(request):
 	if request.method == "POST":
@@ -171,6 +171,7 @@ def user_delete(request, pk):
 	
 class ReviewView(generic.DetailView):
 	model = ReviewBar
+	context_object_name = 'review'
 	template_name = 'barreviews/review.html'
 
 def review_add(request):
@@ -198,3 +199,41 @@ def review_delete(request, pk):
 	instance = ReviewBar.objects.get(pk=pk)
 	instance.delete()
 	return redirect('barreviews:reviews')
+	
+class BreweriesView(generic.ListView):
+	template_name = 'barreviews/breweries.html'
+	context_object_name = 'breweries'
+	
+	def get_queryset(self):
+		#return (x for x in range(0,1)) #
+		return Brewery.objects.all()
+
+class BreweryView(generic.DetailView):
+	model = Brewery
+	template_name = 'barreviews/brewery.html'
+
+def brewery_add(request):
+	if request.method == "POST":
+		form = BreweryForm(request.POST)
+		if form.is_valid():
+			brewery = form.save()
+			return redirect('barreviews:brewery', pk=brewery.id)
+	else:
+		form = BreweryForm()
+	return render(request, 'barreviews/brewery_add.html', {'form': form})
+
+def brewery_edit(request, pk):
+	instance = Brewery.objects.get(pk=pk)
+	if request.method == "POST":
+		form = BreweryForm(request.POST, instance = instance)
+		if form.is_valid():
+			brewery = form.save()
+			return redirect('barreviews:brewery', pk=brewery.id)
+	else:
+		form = BreweryForm(instance = instance)
+	return render(request, 'barreviews/brewery_edit.html', {'form': form})
+
+def brewery_delete(request, pk):
+	instance = Brewery.objects.get(pk=pk)
+	instance.delete()
+	return redirect('barreviews:breweries')

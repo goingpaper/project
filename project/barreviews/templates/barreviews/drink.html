@@ -1,11 +1,8 @@
 {% extends 'barreviews/base.html' %}
 {% block content %}
-    <h1>Drink: {{ drink }}</h1>
+    <h1>{{ drink }}</h1>
     <p>
-        <strong>Name:</strong> {{ drink.name }}
-    </p>
-    <p>
-        <strong>Type:</strong> {{ drink.type }}
+        <strong>Type:</strong> {{ drink.dType }}
     </p>
     <p>
         <strong>Brewery:</strong> {{ drink.brewery }}
@@ -16,4 +13,25 @@
 <p>
 <a href="{% url 'barreviews:drink_delete' drink.id %}">Delete Drink</a>
 </p>
+
+<h3>Likes</h3>
+{% if drink.likesbeer_set.all %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Users who like this</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for l in drink.likesbeer_set.all %}
+        <tr>
+            <td><a href="{% url 'barreviews:user' l.user.id %}">{{ l.user.username }}</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No users have liked this beer.</p>
+{% endif %}
+
 {% endblock %}

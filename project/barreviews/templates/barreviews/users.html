@@ -11,27 +11,24 @@
             <th>Last Name</th>
             <th>Email</th>
             <th>Joined On</th>
-            <th>Status</th>
-            <th>Link</th>
+            <th>Staff</th>
             <th>Edit User</th>
             <th>Delete User</th>
         </tr>
     </thead>
     <tbody>
-        {% for user_single in users %}
+        {% for usertemp in users %}
         <tr>
-            <td>{{ user_single.username }}</td>
-            <td>{{ user_single.first_name }}</td>
-            <td>{{ user_single.last_name }}</td>
-            <td>{{ user_single.email }}</td>
-            <td>{{ user_single.date_joined }}</td>
-            <td>{{ user_single.is_staff }}</td>
-            {% if user_single.id %}
-            <td><a href="{% url 'barreviews:user' user_single.id %}">Link</a></td>
-            <td><a href="{% url 'barreviews:user_edit' user_single.id %}">Edit</a></td>
-            <td><a href="{% url 'barreviews:user_delete' user_single.id %}">Delete</a></td>
+            <td><a href="{% url 'barreviews:user' usertemp.id %}">{{ usertemp.username }}</a></td>
+            <td>{{ usertemp.first_name }}</td>
+            <td>{{ usertemp.last_name }}</td>
+            <td>{{ usertemp.email }}</td>
+            <td>{{ usertemp.date_joined }}</td>
+            <td>{{ usertemp.is_staff }}</td>
+            {% if usertemp.id %}
+            <td><a href="{% url 'barreviews:user_edit' usertemp.id %}">Edit</a></td>
+            <td><a href="{% url 'barreviews:user_delete' usertemp.id %}">Delete</a></td>
             {% else %}
-            <td><a href="{% url 'barreviews:user' 1 %}">Link</a></td>
             <td><a href="{% url 'barreviews:user_edit' 1 %}">Edit</a></td>
             <td><a href="{% url 'barreviews:user_delete' 1 %}">Delete</a></td>
             {% endif %}

@@ -1,0 +1,33 @@
+{% extends 'barreviews/base.html' %}
+{% block content %}
+    <h1>Brewery: {{ brewery }}</h1>
+    <p>
+        <strong>Brewery:</strong> {{ brewery.name }}
+    </p>
+<p>
+<a href="{% url 'barreviews:brewery_edit' brewery.id %}">Edit Brewery</a>
+</p>
+<p>
+<a href="{% url 'barreviews:brewery_delete' brewery.id %}">Delete Brewery</a>
+</p>
+
+{% if brewery.drink_set.all %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Beers</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for d in brewery.drink_set.all %}
+        <tr>
+            <td><a href="{% url 'barreviews:drink' d.id %}">{{ d.name }}</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No drinks are available.</p>
+{% endif %}
+
+{% endblock %}
