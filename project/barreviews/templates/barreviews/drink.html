@@ -14,7 +14,7 @@
 <a href="{% url 'barreviews:drink_delete' drink.id %}">Delete Drink</a>
 </p>
 
-<h3>Likes - {{ drink.likesbeer_set.all }}</h3>
+<h3>Likes - {{ drink.likesbeer_set.all.count }}</h3>
 {% if drink.likesbeer_set.all %}
 <table class="table table-striped">
     <thead>
