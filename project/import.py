@@ -156,7 +156,32 @@ for like in likes_doc:
 	like = LikesBeer(user = this_user,
 				drink = this_drink 
 			)
+	like.full_clean()
+	like.save()
 
+with open('comments.json') as f:
+	comments_doc = json.load(f)
+
+for comment in comments_doc:
 	
+	try:
+		first_user = User.objects.get(username = comment.get('user1'))
+
+	except User.DoesNotExist:
+		first_user = None
+	
+	try:
+		second_user = User.objects.get(username = comment.get('user2'))
+
+	except User.DoesNotExist:
+		second_user = None
+
+	new_comment = Comment(user1 = first_user,
+				user2 = second_user,
+				date = datetime.strptime(comment.get('date'),"%d %B %Y" ) if comment.get('date') else None,
+				comment = comment.get('comment')
+				)
+	new_comment.full_clean()
+	new_comment.save()
 
 	
