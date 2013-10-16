@@ -6,6 +6,7 @@
     <thead>
         <tr>
             <th>Review By</th>
+            <th>Bar</th>
             <th>Date</th>
             <th>Rating</th>
             <th>Link</th>
@@ -16,7 +17,8 @@
     <tbody>
         {% for review in reviews %}
         <tr>
-            <td>{{ review.user.username }}</td>
+            <td><a href="{% url 'barreviews:user' review.user.id %}">{{ review.user.username }}</a></td>
+            <td><a href="{% url 'barreviews:bar' review.bar.id %}">{{ review.bar.name }}</a></td>
             <td>{{ review.date }}</td>
             <td>{{ review.rating }}</td>
             {% if review.id %}
