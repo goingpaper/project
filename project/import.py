@@ -27,7 +27,8 @@ for bar in bars_doc:
 	email = bar.get('email'),
 	website = bar.get('website'),
 	yearEstablished = bar.get('yearEstablished'),
-	description = bar.get('description'))
+	description = bar.get('description')
+	)
 	bar.full_clean()
 	bar.save()
 
@@ -52,7 +53,8 @@ for drink in drinks_doc:
 		
 	drink = Drink(brewery=Brewery.objects.get(name=drink.get('brewery')),
 				  dType=drink.get('type'),
-				  name = drink.get('name'))
+				  name = drink.get('name')
+				  )
 	
 	drink.full_clean()
 	drink.save()
@@ -78,7 +80,8 @@ for serve in serves_doc:
 	serve = Serves(bar = nbar,
 				   drink = ndrink,
 				   onTap = serve.get('onTap'),
-				   price = serve.get('Price'))
+				   price = serve.get('Price')
+				   )
 	serve.full_clean()
 	serve.save()
 
@@ -89,14 +92,47 @@ for user in users_doc:
 	
 	new_user = User.objects.create_user(user.get('username'),
 					user.get('email'),
-					user.get('password'))
+					user.get('password')
+					)
 	new_user.first_name = user.get('firstName') #can do this!!!!!!!
 	new_user.last_name = user.get('lastName')
-	#new_user.date_joined = datetime.str
+	
+	if user.get('dateRegistered'):
+		new_user.date_joined = datetime.strptime(user.get('dateRegistered'), "%d %B %Y" ) 
+	else:
+		new.user.date_joined = None
+
 	new_user.save()
 	#difficult to set more fields
 					
+with open('review_bar.json') as f:
+	review_doc = json.load(f)
+
+for review in review_doc:
 	
+	try:
+
+		this_user = User.objects.get(username=review.get('user'))
+
+	except User.DoesNotExist:
+		this_user = None
+
+	try:
+
+		this_bar = Bar.objects.get(name=review.get('bar'))
+
+	except Bar.DoesNotExist:
+		this_bar = None
+
+	review = ReviewBar(user =this_user,
+				bar =this_bar,
+				rating = review.get('rating'),
+				date = datetime.strptime(review.get('date'),"%d %B %Y" ) if review.get('date') else None,
+				comment = review.get('comment')
+				)	
+
+	review.full_clean()
+	review.save()
 
 	
 	
