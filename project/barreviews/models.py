@@ -41,7 +41,7 @@ class ReviewBar(models.Model):
 	comment = models.CharField(max_length=300)
 #unable to make a multifield primary key in django
 	def __unicode__(self):
-		return self.username
+		return self.user.username
 
 	class Meta:
 		unique_together = ('user', 'bar', 'date')
