@@ -90,8 +90,8 @@ for user in users_doc:
 	new_user = User.objects.create_user(user.get('username'),
 					user.get('email'),
 					user.get('password'))
-	#new_user.first_name = user.get('firstname') #can do this!!!!!!!
-	#new_user.last_name = user.get('lastname')
+	new_user.first_name = user.get('firstName') #can do this!!!!!!!
+	new_user.last_name = user.get('lastName')
 	#new_user.date_joined = datetime.str
 	new_user.save()
 	#difficult to set more fields
