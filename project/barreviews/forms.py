@@ -17,3 +17,7 @@ class UserForm(forms.ModelForm):
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = ReviewBar
+
+class BreweryForm(forms.ModelForm):
+	class Meta:
+		model = Brewery
