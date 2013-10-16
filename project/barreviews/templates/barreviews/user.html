@@ -22,7 +22,7 @@
 <p>
 <a href="{% url 'barreviews:user_delete' usertemp.id %}">Delete User</a>
 </p>
-<h3>Reviews</h3>
+<h3>Reviews - {{ usertemp.reviewbar_set.all.count }}</h3>
 {% if usertemp.reviewbar_set.all %}
 <table class="table table-striped">
     <thead>
@@ -68,7 +68,7 @@
 <p>User has liked no drinks.</p>
 {% endif %}
 
-<h3>Comments</h3>
+<h3>Comments - {{ usertemp.comment_set.all.count }}</h3>
 {% if usertemp.comment_set.all %}
 <table class="table table-striped">
     <thead>
