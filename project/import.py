@@ -96,7 +96,7 @@ for user in users_doc:
 					)
 	new_user.first_name = user.get('firstName') #can do this!!!!!!!
 	new_user.last_name = user.get('lastName')
-	
+
 	if user.get('dateRegistered'):
 		new_user.date_joined = datetime.strptime(user.get('dateRegistered'), "%d %B %Y" ) 
 	else:
@@ -134,7 +134,29 @@ for review in review_doc:
 	review.full_clean()
 	review.save()
 
-	
+with open('likesbeer.json') as f:
+	likes_doc = json.load(f)
+
+for like in likes_doc:
+
+	try:
+
+		this_user = User.objects.get(username = like.get('username'))
+
+	except User.DoesNotExist:
+		this_user = None
+
+	try:
+
+		this_drink = Drink.objects.get(name = like.get('drink'))
+
+	except Drink.DoesNotExist:
+		this_drink = None
+
+	like = LikesBeer(user = this_user,
+				drink = this_drink 
+			)
+
 	
 
 	

@@ -47,11 +47,11 @@ class ReviewBar(models.Model):
 		unique_together = ('user', 'bar', 'date')
 
 class LikesBeer(models.Model):
-	username = models.CharField(max_length=100)
+	user = models.ForeignKey(User,null = True,blank = True)#changed
 	drink = models.ForeignKey(Drink,null=True,blank=True)
 
 	class Meta:
-		unique_together = ('username', 'drink')
+		unique_together = ('user', 'drink')
     
 	def __unicode__(self):
 		return self.username
