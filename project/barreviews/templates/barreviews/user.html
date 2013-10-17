@@ -16,6 +16,7 @@
     <p>
         <strong>User Type:</strong> {{ usertemp.is_staff }}
     </p>
+
 <p>
 <a href="{% url 'barreviews:user_edit' usertemp.id %}">Edit User</a>
 </p>
@@ -68,8 +69,8 @@
 <p>User has liked no drinks.</p>
 {% endif %}
 
-<h3>Comments - {{ usertemp.comment_set.all.count }}</h3>
-{% if usertemp.comment_set.all %}
+<h3>Comments - {{ usertemp.target.all.count }}</h3>
+{% if usertemp.target.all %}
 <table class="table table-striped">
     <thead>
         <tr>
@@ -79,12 +80,14 @@
         </tr>
     </thead>
     <tbody>
-        {% for c in usertemp.comment_set.all %}
-        <tr>
-            <td><a href="{% url 'barreviews:user' c.user1.id %}">{{ c.user1.username }}</a></td>
-            <td>{{ c.date }}</td>
-            <td>{{ c.comment }}</td>
-        </tr>
+        {% for c in usertemp.target.all %}
+
+            <tr>
+                <td><a href="{% url 'barreviews:user' c.user1.id %}">{{ c.user1.username }}</a></td>
+                <td>{{ c.date }}</td>
+                <td>{{ c.comment }}</td>
+            </tr>
+
         {% endfor %}
     </tbody>
 </table>
