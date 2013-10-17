@@ -21,3 +21,7 @@ class ReviewForm(forms.ModelForm):
 class BreweryForm(forms.ModelForm):
 	class Meta:
 		model = Brewery
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment

@@ -239,3 +239,21 @@ def brewery_delete(request, pk):
 	instance = Brewery.objects.get(pk=pk)
 	instance.delete()
 	return redirect('barreviews:breweries')
+
+#wrong tried to have comment add on user page but didnt work
+def comment_add(request):
+	if request.method == 'POST':
+		form = CommentForm(request.POST)
+		if form.is_valid():
+			new_comment = form.save()
+			return redirect('barreviews:user', pk=new_comment.user2.pk)
+	else:
+		form = CommentForm()
+	return render(request,'barreviews/users.html', {'form': form})
+
+
+
+
+
+
+

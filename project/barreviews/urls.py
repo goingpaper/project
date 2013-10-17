@@ -30,6 +30,7 @@ urlpatterns = patterns('',
                        #USERS
                        url(r'^user/(?P<pk>\d+)/$', login_required(views.UserView.as_view()), name='user'),
                        url(r'^user/add/$', views.user_add, name='user_add'),
+                       ######!!!!!!url(r'^user/(?P<pk>\d+)/comment/add/$', views.comment_add, name='comment_add'),
                        url(r'^user/(?P<pk>\d+)/edit/$', views.user_edit, name='user_edit'),
                        url(r'^user/(?P<pk>\d+)/delete/$', views.user_delete, name='user_delete'),
                        
