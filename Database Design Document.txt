@@ -1,4 +1,4 @@
-Database Design Document 2
+Database Design Document
 
 The database design encapsulates a bar and beer information network that is accessed and modified by users through a web interface provided by Django.
 
