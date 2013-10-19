@@ -112,6 +112,7 @@ TEMPLATE_DIRS = (
 
 INSTALLED_APPS = (
     'barreviews',
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
