@@ -9,9 +9,12 @@ from django.core.context_processors import csrf
 # Login views
 
 def login(request):
-    c = {}
-    c.update(csrf(request))
-    return render_to_response('login.html',c)
+    if request.user.username == '':
+        c = {}
+        c.update(csrf(request))
+        return render_to_response('login.html',c)
+    else:
+        return HttpResponseRedirect("/users/")
 
 def auth_view(request):
 	username = request.POST.get('username', '')
@@ -168,9 +171,10 @@ def user_edit(request, pk):
 	return render(request, 'barreviews/user_edit.html', {'form': form})
 
 def user_delete(request, pk):
-	instance = User.objects.get(pk=pk)
-	instance.delete()
-	return redirect('barreviews:users')
+    if int(request.user.id) == int(pk):
+        instance = User.objects.get(pk=pk)
+        instance.delete()
+    return redirect('barreviews:users')
 	
 class ReviewView(generic.DetailView):
 	model = ReviewBar

@@ -4,7 +4,6 @@
 {% if form.errors %}
 	<p class="error">Sorry, that's not a valid username or password</p>
 {% endif %}
-
 <form action="/accounts/auth/" method="post">{% csrf_token %}
         <label for="username">User name:</label>
         <input type="text" name="username" value="" id="username">
