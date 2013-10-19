@@ -1,9 +1,6 @@
 {% extends 'barreviews/base.html' %}
 {% block content %}
-    <h1>Brewery: {{ brewery }}</h1>
-    <p>
-        <strong>Brewery:</strong> {{ brewery.name }}
-    </p>
+    <h1>{{ brewery }} Brewery</h1>
 <p>
 <a href="{% url 'barreviews:brewery_edit' brewery.id %}">Edit Brewery</a>
 </p>

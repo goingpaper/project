@@ -30,7 +30,6 @@ urlpatterns = patterns('',
                        #USERS
                        url(r'^user/(?P<pk>\d+)/$', login_required(views.UserView.as_view()), name='user'),
                        url(r'^user/add/$', views.user_add, name='user_add'),
-                       ######!!!!!!url(r'^user/(?P<pk>\d+)/comment/add/$', views.comment_add, name='comment_add'),
                        url(r'^user/(?P<pk>\d+)/edit/$', views.user_edit, name='user_edit'),
                        url(r'^user/(?P<pk>\d+)/delete/$', views.user_delete, name='user_delete'),
                        
@@ -47,8 +46,16 @@ urlpatterns = patterns('',
                        url(r'^review/(?P<pk>\d+)/edit/$', views.review_edit, name='review_edit'),
                        url(r'^review/(?P<pk>\d+)/delete/$', views.review_delete, name='review_delete'),
                        
+                       #BREWERIES
                        url(r'^brewery/(?P<pk>\d+)/$', views.BreweryView.as_view(), name='brewery'),
                        url(r'^brewery/add/$', views.brewery_add, name='brewery_add'),
                        url(r'^brewery/(?P<pk>\d+)/edit/$', views.brewery_edit, name='brewery_edit'),
-                       url(r'^brewery/(?P<pk>\d+)/delete/$', views.brewery_delete, name='brewery_delete')
+                       url(r'^brewery/(?P<pk>\d+)/delete/$', views.brewery_delete, name='brewery_delete'),
+                       
+                       #COMMENTS
+                       url(r'^comment/(?P<pk>\d+)/$', views.CommentView.as_view(), name='comment'),
+                       url(r'^comment/add/$', views.comment_add, name='comment'),
+                       url(r'^comment/(?P<pk>\d+)/edit/$', views.comment_edit, name='comment'),
+                       url(r'^comment/(?P<pk>\d+)/delete/$', views.comment_delete, name='comment')
                        )
+  

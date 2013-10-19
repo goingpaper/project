@@ -242,18 +242,37 @@ def brewery_delete(request, pk):
 	return redirect('barreviews:breweries')
 
 #wrong tried to have comment add on user page but didnt work
+class CommentView(generic.DetailView):
+	model = Comment
+	context_object_name = 'comment'
+	template_name = 'barreviews/comment.html'
+
 def comment_add(request):
 	if request.method == 'POST':
 		form = CommentForm(request.POST)
 		if form.is_valid():
 			new_comment = form.save()
-			return redirect('barreviews:user', pk=new_comment.user2.pk)
+			return redirect('barreviews:comment', pk=new_comment.id)
 	else:
 		form = CommentForm()
-	return render(request,'barreviews/users.html', {'form': form})
+	return render(request,'barreviews/comment_add.html', {'form': form})
 
+def comment_edit(request, pk):
+	instance = Comment.objects.get(pk=pk)
+	if request.method == "POST":
+		form = CommentForm(request.POST, instance = instance)
+		if form.is_valid():
+			comment = form.save()
+			return redirect('barreviews:user', pk=comment.user2.pk)
+	else:
+		form = CommentForm(instance = instance)
+	return render(request, 'barreviews/comment_edit.html', {'form': form})
 
-
+def comment_delete(request, pk):
+	instance = Comment.objects.get(pk=pk)
+	temp = instance
+	instance.delete()
+	return redirect('barreviews:user', pk=temp.user2.pk)
 
 
 
