@@ -1,4 +1,4 @@
-cits2232project (beers and boys)
+beers and boys
 ===============
 
 To run the application an installation of Django is required, the latest one can be found at
