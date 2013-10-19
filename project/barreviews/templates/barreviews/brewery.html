@@ -1,12 +1,14 @@
 {% extends 'barreviews/base.html' %}
 {% block content %}
     <h1>{{ brewery }} Brewery</h1>
+{% if user.is_staff %}
 <p>
 <a href="{% url 'barreviews:brewery_edit' brewery.id %}">Edit Brewery</a>
 </p>
 <p>
 <a href="{% url 'barreviews:brewery_delete' brewery.id %}">Delete Brewery</a>
 </p>
+{% endif %}
 
 <h3>Drinks - {{ brewery.drink_set.all.count }}</h3>
 {% if brewery.drink_set.all %}

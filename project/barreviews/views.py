@@ -24,6 +24,7 @@ def auth_view(request):
 		# Correct password, and the user is marked "active"
 		auth.login(request, user)
 		# Redirect to a success page.
+		print request.user.username, 'is staff?', request.user.is_staff
 		return HttpResponseRedirect("/accounts/loggedin/")
 	else:
 		# Show an error page
@@ -104,15 +105,19 @@ def bar_add(request):
 	return render(request, 'barreviews/bar_add.html', {'form': form})
 
 def bar_edit(request, pk):
-	instance = Bar.objects.get(pk=pk)
-	if request.method == "POST":
-		form = BarForm(request.POST, instance = instance)
-		if form.is_valid():
-			car = form.save()
-			return redirect('barreviews:bar', pk=bar.id)
+	print request.user.username, 'is staff?', request.user.is_staff
+	if request.user.is_staff:
+		instance = Bar.objects.get(pk=pk)
+		if request.method == "POST":
+			form = BarForm(request.POST, instance = instance)
+			if form.is_valid():
+				car = form.save()
+				return redirect('barreviews:bar', pk=bar.id)
+		else:
+			form = BarForm(instance = instance)
+		return render(request, 'barreviews/bar_edit.html', {'form': form})
 	else:
-		form = BarForm(instance = instance)
-	return render(request, 'barreviews/bar_edit.html', {'form': form})
+		return redirect('barreviews:bars')
 
 def bar_delete(request, pk):
 	if not request.user.has_perm('barreviews.delete_bar'):
