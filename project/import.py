@@ -92,7 +92,6 @@ for user in users_doc:
 					)
 	new_user.first_name = user.get('firstName') #can do this!!!!!!!
 	new_user.last_name = user.get('lastName')
-	new_user.is_staff = user.get('staff')
     
 	if user.get('staff'):
 		new_user.is_staff = user.get('staff')
