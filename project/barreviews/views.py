@@ -68,6 +68,12 @@ class DrinksView(generic.ListView):
 		#return (x for x in range(0,1)) #
 		return Drink.objects.all()
 
+
+class DrinksAlphaView(generic.ListView)
+	template_name = 'barreviews/drinks.html'
+	context_object_name = 'drinks'
+
+	
 class ReviewsView(generic.ListView):
 	template_name = 'barreviews/reviews.html'
 	context_object_name = 'reviews'
