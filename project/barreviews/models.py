@@ -44,7 +44,7 @@ class ReviewBar(models.Model):
 		(5,5)
 		)
 	rating = models.IntegerField(choices=RATING_CHOICES)
-	date = models.DateField()
+	date = models.DateField(auto_now_add=True)
 	comment = models.CharField(max_length=300)
 #unable to make a multifield primary key in django
 	def __unicode__(self):
@@ -79,7 +79,7 @@ class Serves(models.Model):
 class Comment(models.Model):
 	user1 = models.ForeignKey(User,related_name = 'source')
 	user2 = models.ForeignKey(User,related_name = 'target')
-	date = models.DateField()
+	date = models.DateField(auto_now_add=True)
 	comment = models.CharField(max_length=300)
     
 	def __unicode__(self):
