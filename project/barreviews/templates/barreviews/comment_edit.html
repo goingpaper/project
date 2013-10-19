@@ -1,6 +1,6 @@
 {% extends 'barreviews/base.html' %}
 {% block content %}
-<h1>Edit Drink</h1>
+<h1>Edit Comment</h1>
 <form method="post" action="{% url 'barreviews:comment_edit' form.instance.id %}">
     {% csrf_token %}
     <table>
