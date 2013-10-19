@@ -34,8 +34,8 @@ class Drink(models.Model):
 
 	
 class ReviewBar(models.Model):
-	user = models.ForeignKey(User,null=True,blank=True) # ? constraints
-	bar = models.ForeignKey(Bar,null=True,blank=True) # ? constraints #?
+	user = models.ForeignKey(User) # ? constraints
+	bar = models.ForeignKey(Bar) # ? constraints #?
 	RATING_CHOICES = (
 		(1,1),
 		(2,2),
@@ -48,29 +48,29 @@ class ReviewBar(models.Model):
 	comment = models.CharField(max_length=300)
 #unable to make a multifield primary key in django
 	def __unicode__(self):
-		return self.user.username
+		return '%s reviews %s' % (self.user , self.bar)
 
 	class Meta:
 		unique_together = ('user', 'bar', 'date')
 
 class LikesBeer(models.Model):
-	user = models.ForeignKey(User,null = True,blank = True)#changed
-	drink = models.ForeignKey(Drink,null=True,blank=True)
+	user = models.ForeignKey(User)#changed
+	drink = models.ForeignKey(Drink)
 
 	class Meta:
 		unique_together = ('user', 'drink')
     
 	def __unicode__(self):
-		return self.username
+		return '%s likes %s' % (self.user , self.drink)
 
 class Serves(models.Model):
-	bar = models.ForeignKey(Bar,null = True,blank=True)
-	drink = models.ForeignKey(Drink,null = True,blank=True)
+	bar = models.ForeignKey(Bar)
+	drink = models.ForeignKey(Drink)
 	onTap = models.BooleanField()
 	price = models.DecimalField(max_digits=5,decimal_places=2)
 
 	def __unicode__(self):
-		return '%s serves %s' % (self.barName , self.drinkName)
+		return '%s serves %s' % (self.bar , self.drink)
 
 	class Meta:
 		unique_together = ('bar', 'drink')
