@@ -9,6 +9,18 @@
 {"name": "Kelly Brothers Apple Cider", "type": "Cider", "brewery": "Kelly Brothers"},
 {"name": "Kelly Brothers Pear Cider", "type": "Cider", "brewery": "Kelly Brothers"},
 
+{"name": "Matso's Mango Beer", "type": "Lager", "brewery": "Matso's"},
+{"name": "Matso's Ginger Beer", "type": "Lager", "brewery": "Matso's"},
+
+{"name": "Monteith's Summer Ale", "type": "Ale", "brewery": "Monteith's"},
+{"name": "Monteith's Amber Ale", "type": "Ale", "brewery": "Monteith's"},
+{"name": "Monteith's Crushed Apple Cider", "type": "Cider", "brewery": "Monteith's"},
+{"name": "Monteith's Crushed Pear Cider", "type": "Cider", "brewery": "Monteith's"},
+{"name": "Monteith's Golden Lager", "type": "Lager", "brewery": "Monteith's"},
+
+{"name": "Gage Roads Wahoo Premium Ale", "type": "Ale", "brewery": "Gage Roads"},
+{"name": "Gage Roads Atomic Pale Ale", "type": "Ale", "brewery": "Gage Roads"},
+
 {"name": "James Boag's Premium", "type": "Lager", "brewery": "James Boag's"},
 {"name": "James Boag's Draught", "type": "Lager", "brewery": "James Boag's"},
 {"name": "James Boag's Premium Light", "type": "Lager", "brewery": "James Boag's"},
@@ -35,9 +47,11 @@
 {"name": "Victoria Bitter", "type": "Lager", "brewery": "Carlton & United"},
 {"name": "Pure Blonde", "type": "Lager", "brewery": "Carlton & United"},
 
+{"name": "Little Creatures Pipsqueak Cider", "type": "Cider", "brewery": "Little Creatures"},
 {"name": "Little Creatures Pale Ale", "type": "Ale", "brewery": "Little Creatures"},
 {"name": "Little Creatures Bright Ale", "type": "Ale", "brewery": "Little Creatures"},
 {"name": "Little Creatures Pilsner", "type": "Lager", "brewery": "Little Creatures"},
+{"name": "Little Creatures Rogers", "type": "Lager", "brewery": "Little Creatures"},
 {"name": "White Rabbit White Ale", "type": "Ale", "brewery": "Little Creatures"},
 {"name": "White Rabbit Dark Ale", "type": "Ale", "brewery": "Little Creatures"},
  
