@@ -16,13 +16,14 @@
     <p>
         <strong>User Type:</strong> {{ usertemp.is_staff }}
     </p>
-
+{% if user.username == usertemp.username %}
 <p>
 <a href="{% url 'barreviews:user_edit' usertemp.id %}">Edit User</a>
 </p>
 <p>
 <a href="{% url 'barreviews:user_delete' usertemp.id %}">Delete User</a>
 </p>
+{% endif %}
 <h3>Reviews - {{ usertemp.reviewbar_set.all.count }}</h3>
 {% if usertemp.reviewbar_set.all %}
 <table class="table table-striped">

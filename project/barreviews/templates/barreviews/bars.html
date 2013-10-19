@@ -8,8 +8,6 @@
             <th>Name</th>
             <th>Address</th>
             <th>Website</th>
-            <th>Edit Bar</th>
-            <th>Delete Bar</th>
         </tr>
     </thead>
     <tbody>
@@ -18,13 +16,6 @@
             <td><a href="{% url 'barreviews:bar' bar.id %}">{{ bar.name }}</a></td>
             <td>{{ bar.address }}</td>
             <td><a href="{{ bar.website }}">{{ bar.website }}</a></td>
-            {% if bar.id %}
-            <td><a href="{% url 'barreviews:bar_edit' bar.id %}">Edit</a></td>
-            <td><a href="{% url 'barreviews:bar_delete' bar.id %}">Delete</a></td>
-            {% else %}
-            <td><a href="{% url 'barreviews:bar_edit' 1 %}">Edit</a></td>
-            <td><a href="{% url 'barreviews:bar_delete' 1 %}">Delete</a></td>
-            {% endif %}
         </tr>
         {% endfor %}
     </tbody>
