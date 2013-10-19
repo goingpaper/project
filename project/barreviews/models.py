@@ -26,7 +26,7 @@ class Brewery(models.Model):
 class Drink(models.Model):
 	brewery = models.ForeignKey(Brewery)
 	dType = models.CharField(max_length=100)
-	name = models.CharField(max_length=100)
+	name = models.CharField(max_length=100,unique=True)
 	
 	def __unicode__(self):
 		return self.name
