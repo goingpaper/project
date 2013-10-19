@@ -10,10 +10,12 @@
     <p>
         <strong>Comment:</strong> {{ review.comment|default:"" }}
     </p>
+{% if user.username == review.user.username %}
 <p>
 <a href="{% url 'barreviews:review_edit' review.id %}">Edit Review</a>
 </p>
 <p>
 <a href="{% url 'barreviews:review_delete' review.id %}">Delete Review</a>
 </p>
+{% endif %}
 {% endblock %}

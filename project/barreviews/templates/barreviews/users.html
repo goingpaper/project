@@ -1,7 +1,6 @@
 {% extends 'barreviews/base.html' %}
 {% block content %}
 <h1>All Users - {{ users.count }}</h1>
-<h2><a href="{% url 'barreviews:logout' %}">Logout</a></h2>
 {% if users %}
 <table class="table table-striped">
     <thead>
@@ -12,8 +11,6 @@
             <th>Email</th>
             <th>Joined On</th>
             <th>Staff</th>
-            <th>Edit User</th>
-            <th>Delete User</th>
         </tr>
     </thead>
     <tbody>
@@ -25,13 +22,6 @@
             <td>{{ usertemp.email }}</td>
             <td>{{ usertemp.date_joined }}</td>
             <td>{{ usertemp.is_staff }}</td>
-            {% if usertemp.id %}
-            <td><a href="{% url 'barreviews:user_edit' usertemp.id %}">Edit</a></td>
-            <td><a href="{% url 'barreviews:user_delete' usertemp.id %}">Delete</a></td>
-            {% else %}
-            <td><a href="{% url 'barreviews:user_edit' 1 %}">Edit</a></td>
-            <td><a href="{% url 'barreviews:user_delete' 1 %}">Delete</a></td>
-            {% endif %}
         </tr>
         {% endfor %}
     </tbody>
