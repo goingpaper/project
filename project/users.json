@@ -1,4 +1,15 @@
 [
+
+{"username": "admin",
+"password": "admin",
+"firstName": "admin",
+"lastName": "admin",
+"email": "admin@gmail.com",
+"dateRegistered": "25 September 2013",
+"staff": true,
+"superUser": true
+},
+
 {"username": "Colkadome",
 "password": "colkadome_123",
 "firstName": "Joseph",
@@ -40,8 +51,7 @@
 "firstName": "Barry",
 "lastName": "Babeboy",
 "email": "barrybabeboy@hotmail.com",
-"dateRegistered": "26 September 2013",
-"staff": false
+"dateRegistered": "26 September 2013"
 },
 
 {"username": "LiquorLamp",
@@ -49,8 +59,7 @@
 "firstName": "Larry",
 "lastName": "Linceworth",
 "email": "larrylinceworth@hotmail.com",
-"dateRegistered": "26 September 2013",
-"staff": false
+"dateRegistered": "26 September 2013"
 }
 
 ]
