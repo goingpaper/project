@@ -62,7 +62,7 @@ class UsersView(generic.ListView):
 	context_object_name = 'users'
 	
 	def get_queryset(self):
-		return User.objects.all()
+		return User.objects.exclude(is_superuser=True)
 
 class DrinksView(generic.ListView):
 	template_name = 'barreviews/drinks.html'
