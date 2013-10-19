@@ -3,10 +3,10 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Bar(models.Model):
-	name = models.CharField(max_length=100)
-	address = models.CharField(max_length=100)
-	phone = models.CharField(max_length=100,blank = True,null = True)
-	email = models.CharField(max_length=100,blank = True,null = True)
+	name = models.CharField(max_length=100,unique=True)
+	address = models.CharField(max_length=100,unique=True)
+	phone = models.CharField(max_length=100,blank = True,null = True,unique=True)
+	email = models.CharField(max_length=100,blank = True,null = True,unique=True)
 	website = models.CharField(max_length=100,blank = True,null = True)
 	yearEstablished = models.IntegerField(blank=True,null=True)
 	description = models.CharField(max_length=300,blank = True,null = True)
@@ -16,7 +16,7 @@ class Bar(models.Model):
 	
 #<<<<<<< HEAD
 class Brewery(models.Model):
-	name = models.CharField(max_length=100) #not sure
+	name = models.CharField(max_length=100,unique=True) #not sure
 	
 	def __unicode__(self):
 		return self.name
@@ -35,8 +35,15 @@ class Drink(models.Model):
 	
 class ReviewBar(models.Model):
 	user = models.ForeignKey(User,null=True,blank=True) # ? constraints
-	bar = models.ForeignKey(Bar,null=True,blank=True) # ? constraints
-	rating = models.IntegerField() #?
+	bar = models.ForeignKey(Bar,null=True,blank=True) # ? constraints #?
+	RATING_CHOICES = (
+		(1,1),
+		(2,2),
+		(3,3),
+		(4,4),
+		(5,5)
+		)
+	rating = models.IntegerField(choices=RATING_CHOICES)
 	date = models.DateField()
 	comment = models.CharField(max_length=300)
 #unable to make a multifield primary key in django
