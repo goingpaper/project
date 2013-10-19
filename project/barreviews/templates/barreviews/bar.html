@@ -63,7 +63,7 @@
         </tr>
     </thead>
     <tbody>
-        {% for s in bar.reviewbar_set.all %}
+        {% for s in bar.serves_set.all %}
         <tr>
             <td><a href="{% url 'barreviews:drink' s.drink.id %}">{{ s.drink.name }}</td>
             <td>{{ s.price }}</td>
