@@ -77,6 +77,13 @@ class ReviewsView(generic.ListView):
 		#return (x for x in range(0,1)) 
 		return ReviewBar.objects.all()
 		
+class CommentsView(generic.ListView):
+	template_name = 'barreviews/comments.html'
+	context_object_name = 'comments'
+	
+	def get_queryset(self):
+		#return (x for x in range(0,1)) 
+		return Comment.objects.all()
 #More specific views below
 		
 class BarView(generic.DetailView):
