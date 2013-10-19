@@ -1,5 +1,21 @@
 [
 
+{"name": "Asahi Super Dry", "type": "Lager", "brewery": "Asahi"},
+
+{"name": "Feral Hop Hog", "type": "Ale", "brewery": "Feral"},
+{"name": "Feral Golden Ace", "type": "Ale", "brewery": "Feral"},
+{"name": "Feral White", "type": "Ale", "brewery": "Feral"},
+
+{"name": "Kelly Brothers Apple Cider", "type": "Cider", "brewery": "Kelly Brothers"},
+{"name": "Kelly Brothers Pear Cider", "type": "Cider", "brewery": "Kelly Brothers"},
+
+{"name": "James Boag's Premium", "type": "Lager", "brewery": "James Boag's"},
+{"name": "James Boag's Draught", "type": "Lager", "brewery": "James Boag's"},
+{"name": "James Boag's Premium Light", "type": "Lager", "brewery": "James Boag's"},
+{"name": "James Boag's Draught Light", "type": "Lager", "brewery": "James Boag's"},
+{"name": "James Boag's XXX Ale", "type": "Ale", "brewery": "James Boag's"},
+{"name": "James Boag's Wizard Smith", "type": "Ale", "brewery": "James Boag's"},
+
 {"name": "Coopers Sparkling Ale", "type": "Ale", "brewery": "Coopers"},
 {"name": "Coopers Pale Ale", "type": "Ale", "brewery": "Coopers"},
 {"name": "Coopers Best Extra Stout", "type": "Stout", "brewery": "Coopers"},
