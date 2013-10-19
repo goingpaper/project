@@ -1,9 +1,13 @@
-Database Design Document 2
+Database Design Document
 
-The database design encapsulates a bar and beer information network that is accessed and modified by users through a web interface provided by Django.
+Our project encapsulates a bar and beer information network that users can access and modify. Information regarding bars and beverages can be accessed by users, and users may sign in and write reviews for bars and. The whole database has been implemented using underlying SQL coupled with Django, a high-level Python web framework.
 
-The design allows users to log in to the network and view information/review various bars in the area. Users can ‘Like’ beers, and in turn see what bars serve the drinks they like. Users can also review bars, which include a rating of 0 to 5 stars and a comment. Each user has a profile page which contains contact information and a record of their activity on the website.
+The information on the bars, drinks, and users has been separated into two views: The list view and the detail view. The list view lists all available bars, drinks, or users in the database, and the information in the list view is limited as to not overcomplicate the webpage. When an entry is found on the list view that a user wishes to explore, the user can bring up the detail view on that particular item. The detail view contains all information regarding the item. An example is the bar detail view, which contains all information regarding the bar, along with the reviews of the bar by users, and the drinks that the bar serves.
+
+The way users interact with the database is similar to any social networking website, such as Facebook. Users can review bars, comment on other users’ pages, and ‘like’ beers. A user’s activity can be seen by looking on their page.
 
 Admins have special privileges, allowing them to insert, change or delete any part of the database.
 
 The database is designed as a relational database with Django to provide a web interface to the database. In creating the schema for the database, the data was designed using a UML diagram and separated into tables that are only linked via primary keys in relationship classes. This was to avoid BCNF violations that could cause repetition and anomalies amongst the data.
+
+

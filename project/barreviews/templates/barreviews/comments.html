@@ -1,0 +1,29 @@
+{% extends 'barreviews/base.html' %}
+{% block content %}
+<h1>All Comments- {{ comments.count }}</h1>
+{% if comments %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Source</th>
+            <th>Target</th>
+            <th>Date</th>
+            <th>Comment/th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for comment in comments %}
+        <tr>
+            <td><a href="{% url 'barreviews:user' comment.user1.id %}">{{ comment.user1.username }}</a></td>
+            <td><a href="{% url 'barreviews:user' comment.user2.id %}">{{ comment.user2.username }}</a></td>
+            <td>{{comment.date}}</a></td>
+
+            <td><a href="{% url 'barreviews:comment' comment.id %}">{{comment.comment}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No drinks are available.</p>
+{% endif %}
+{% endblock %}
