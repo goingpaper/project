@@ -92,11 +92,22 @@ for user in users_doc:
 					)
 	new_user.first_name = user.get('firstName') #can do this!!!!!!!
 	new_user.last_name = user.get('lastName')
+	new_user.is_staff = user.get('staff')
+    
+	if user.get('staff'):
+		new_user.is_staff = user.get('staff')
+	else:
+		new_user.is_staff = False
+
+	if user.get('superUser'):
+		new_user.is_superuser = user.get('superUser')
+	else:
+		new_user.is_superuser = False
 
 	if user.get('dateRegistered'):
 		new_user.date_joined = datetime.strptime(user.get('dateRegistered'), "%d %B %Y" ) 
 	else:
-		new.user.date_joined = None
+		new_user.date_joined = None
 
 	new_user.save()
 	#difficult to set more fields
