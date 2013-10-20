@@ -192,6 +192,8 @@ def user_add(request):
 		form = UserForm(request.POST)
 		if form.is_valid():
 			user = form.save()
+			user.set_password(user.password)
+			user.save()
 			return redirect('barreviews:user', pk=user.id)
 	else:
 		form = UserForm()
