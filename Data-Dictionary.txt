@@ -63,7 +63,7 @@ Primary Key(bar, drink)
 Comment
 ---------------------------------
 user1		        User
-user2			    User
-date			    Date
+user2			      User
+date		  			Date
 comment		    	String
 Primary Key(user1, user2, date)
