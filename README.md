@@ -14,3 +14,6 @@ to the list of users in project/project/users.json login access is currently gra
 to one account with username 'admin' and password 'admin'. An example non-superuser account to login with has username 
 'GoingPaper' and password 'goingpaper_123'.
 
+After login on the main site a few different html pages can be accessed from hyperlinks in the header bar.
+The linked pages are Bars,Users,Drinks,Reviews and Breweries all of which contain tables of data according to
+the objects they hold. From each those pages individual detailed views of those objects can be accessed.
