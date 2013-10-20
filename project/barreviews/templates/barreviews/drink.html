@@ -5,7 +5,7 @@
         <strong>Type:</strong> {{ drink.dType }}
     </p>
     <p>
-        <strong>Brewery:</strong> <a href="{% url 'barreviews:brewery' drink.brewery.id %}">{{ drink.brewery }}
+        <strong>Brewery:</strong> <a href="{% url 'barreviews:brewery' drink.brewery.id %}">{{ drink.brewery }}</a>
     </p>
 {% if user.is_active %}
 <p>
