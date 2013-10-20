@@ -217,7 +217,7 @@ def user_delete(request, pk):
 		instance = User.objects.get(pk=pk)
 		instance.delete()
 	return redirect('barreviews:users')
-	
+
 class ReviewView(generic.DetailView):
 	model = ReviewBar
 	context_object_name = 'review'
@@ -307,12 +307,6 @@ def brewery_delete(request, pk):
 	instance = Brewery.objects.get(pk=pk)
 	instance.delete()
 	return redirect('barreviews:breweries')
-
-#wrong tried to have comment add on user page but didnt work
-class CommentView(generic.DetailView):
-	model = Comment
-	context_object_name = 'comment'
-	template_name = 'barreviews/comment.html'
 
 def comment_add(request):
 	if request.method == 'POST':
