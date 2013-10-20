@@ -75,8 +75,6 @@
 
 <h3>Comments - {{ usertemp.target.all.count }}</h3>
 
-<p> Comment on {{usertemp.username}} </p>
-
 {% if usertemp.target.all %}
 <table class="table table-striped">
     <thead>
@@ -100,6 +98,15 @@
 </table>
 {% else %}
 <p>User has no comments.</p>
+{% endif %}
+
+{% if user.is_active %}
+<h3>Write a Comment</h3>
+<form action="/comment/auth/{{usertemp.id}}/" method="post">{% csrf_token %}
+    <label for="comment">Comment:</label>
+    <input type="text" name="comment" value="" id="comment">
+    <input type="submit" value="Submit" />
+</form>
 {% endif %}
 
 {% endblock %}
