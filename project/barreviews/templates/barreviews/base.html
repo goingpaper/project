@@ -25,9 +25,6 @@
                         <li><a href="{% url 'barreviews:drinks' %}">Drinks</a></li>
                         <li><a href="{% url 'barreviews:reviews' %}">Reviews</a></li>
                         <li><a href="{% url 'barreviews:breweries' %}">Breweries</a></li>
-						{% if user %}
-						<li><a href="{% url 'barreviews:user' user.id %}">Your Page</a></li>
-						{% endif %}
                     </ul>
                 </div>
             </div>
