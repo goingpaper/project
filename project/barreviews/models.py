@@ -102,7 +102,7 @@ class Comment(models.Model):
 		return '%s comments on %s' % (self.user1, self.user2)
 
 	class Meta:
-		unique_together = ('user1', 'user2','date')
+		unique_together = ('user1', 'user2','date','comment')
 #max 5 digit number and 2 decimal places
 
 	
