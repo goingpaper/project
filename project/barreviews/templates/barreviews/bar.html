@@ -52,6 +52,18 @@
 <p>No users have reviewed this bar.</p>
 {% endif %}
 
+{% if user.is_active %}
+<h3>Write a Review</h3>
+<form action="/review/auth/{{bar.id}}/" method="post">{% csrf_token %}
+    <label for="comment">Comment:</label>
+    <input type="text" name="comment" value="" id="comment">
+        <label for="rating">Rating:</label>
+        <input type="number" name="rating" min="1" max="5" value="" id="rating">
+            
+            <input type="submit" value="Submit" />
+</form>
+{% endif %}
+
 <h3>Drinks served - {{ bar.serves_set.all.count }}</h3>
 {% if bar.serves_set.all %}
 <table class="table table-striped">
