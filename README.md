@@ -16,4 +16,5 @@ to one account with username 'admin' and password 'admin'. An example non-superu
 
 After login on the main site a few different html pages can be accessed from hyperlinks in the header bar.
 The linked pages are Bars,Users,Drinks,Reviews and Breweries all of which contain tables of data according to
-the objects they hold. From each those pages individual detailed views of those objects can be accessed.
+the objects they hold. From each those pages individual detailed views of those objects can be accessed. Users have
+the ability to add reviews on any bar, like any listed berr and comment on any non-superusers page
