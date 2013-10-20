@@ -1,36 +1,113 @@
 Coopers Brewery
 -----------------
-Coopers Sparkling Ale		Ale
-Coopers Pale Ale 		Ale
-Coopers Best Extra Stout	Stout
-Coopers Dark Ale		Ale
-Coopers Premium Lager		Lager
+Coopers Sparkling Ale					        Ale
+Coopers Pale Ale 				            	Ale
+Coopers Best Extra Stout			        	Stout
+Coopers Dark Ale				            	Ale
+Coopers Premium Lager				        	Lager
 
 
 Tooheys Brewery
 -----------------
-Tooheys New		Lager
-Tooheys Old		Ale
-Tooheys Extra Dry	Lager
+Tooheys New						                Lager
+Tooheys Old					                	Ale
+Tooheys Extra Dry				            	Lager
 
 
 Swan Brewery
 -----------------
-Swan Draught		Lager
-Swan Gold		Lager
-Emu Export		Lager
-Emu Draft		Lager
-
+Swan Draught						            Lager
+Swan Gold						                Lager
+Emu Export					                	Lager
+Emu Draft					                	Lager
+    
 
 Carlton & United Breweries
 -----------------
-Carlton Draught		Lager
-Victoria Bitter		Lager
-Pure Blonde		Lager
+Carlton Draught					            	Lager
+Victoria Bitter					            	Lager
+Pure Blonde					                	Lager
 
 
 Little Creatures Brewery
 -----------------
-Little Creatures Pale Ale	Ale
-Little Creatures Bright Ale	Ale
-Little Creatures Pilsner	Lager
+Little Creatures Pale Ale				        Ale
+Little Creatures Bright Ale			        	Ale
+Little Creatures Pilsner			        	Lager
+Little Creatures Pipsqueak Cider	    	    Cider
+Little Creatures Rogers				            Lager
+White Rabbit White Ale				            Ale
+White Rabbit Dark Ale				            Ale
+
+
+Asahi Brewery
+-----------------
+Asahi Super Dry					               Lager
+
+
+Feral Brewery
+-----------------
+Feral Hop Hog					               Ale
+Feral Golden Ace				               Ale
+Feral White                                    Ale
+
+
+Kelly Brothers Brewery
+-----------------
+Kelly Brothers Apple Cider			           Cider
+Kelly Brothers Pear Cider		     	       Cider
+
+
+Matso's Brewery
+-----------------
+Matso's Mango Beer				     Lager
+Matso's Ginger Beer		 		     Lager
+
+
+Monteith's Brewery
+-----------------
+Monteith's Summer Ale				     Ale
+Monteith's Amber Ale				     Ale
+Monteith's Crushed Apple Cider			 Cider
+Monteith's Crushed Pear Cider			 Cider
+Monteith's Golden Lager				     Lager
+
+
+Gage Roads Brewery
+-----------------
+Gage Roads Wahoo Premium Ale			 Ale
+Gage Roads Atomic Pale Ale			     Ale
+
+
+James Boag's Brewery
+-----------------
+James Boag's Premium				     Lager
+James Boag's Draught				     Lager
+James Boag's Premium Light 			     Lager
+James Boag's Draught Light			     Lager
+James Boag's XXX Ale				     Ale
+James Boag's Wizard Smith			     Ale
+
+
+Rebello Brewery
+-----------------
+Cheeky Rascal Apple Cider			             Cider
+Cheeky Rascal Raspberry and Apple Cider		     Cider
+Cheeky Rascal Summerberry Cider			         Cider
+Cheeky Rascal Strawberry and Pear Cider		     Cider
+
+
+Sail and Anchor Brewery
+-----------------
+Sail and Anchor Boas Bind Amber Ale		         Ale
+Sail and Anchor Cats Shank Kolsch		         Kolsch
+Sail and Anchor Larks Foot Golden Ale		     Ale
+Sail and Anchor Monkey Fist Pale Ale		     Ale
+
+
+James Squire Brewery
+-----------------
+James Squire Golden Ale 			         Ale
+James Squire 150 Lashes Pale Ale		     Ale
+James Squire Nine Tails Amber Ale		     Ale
+James Squire Jack of Spades Porter		     Ale
