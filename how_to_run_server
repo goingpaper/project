@@ -1,6 +1,0 @@
-python manage.py sqlall barreviews
-python manage.py syncdb
-export DJANGO_SETTINGS_MODULE=project.settings
-python import.py
-python manage.py runserver
-oii joe im doing an in depth guide
