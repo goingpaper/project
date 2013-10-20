@@ -38,7 +38,7 @@
                     <li><a href="{% url 'barreviews:logout' %}">Logout</a></li>
                     {% endif %}
 					{% if not user.is_active %}
-                    <li><a href="#">Sign Up</a></li>
+                    <li><a href="{% url 'barreviews:user_add' %}">Sign Up</a></li>
 					{% endif %}
                 </ul>
             </div><!-- /.navbar-collapse -->
