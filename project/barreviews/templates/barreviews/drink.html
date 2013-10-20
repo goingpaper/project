@@ -7,6 +7,14 @@
     <p>
         <strong>Brewery:</strong> {{ drink.brewery }}
     </p>
+{% if user.is_active %}
+<p>
+<a href="{% url 'barreviews:drink_like' drink.id %}">Like</a>
+</p>
+<p>
+<a href="{% url 'barreviews:drink_unlike' drink.id %}">Unlike</a>
+</p>
+{% endif %}
 {% if user.is_staff %}
 <p>
 <a href="{% url 'barreviews:drink_edit' drink.id %}">Edit Drink</a>
