@@ -30,6 +30,25 @@ def auth_view(request):
 		# Show an error page
 		return HttpResponseRedirect("/accounts/invalid/")
 
+def drink_like(request, pk):
+	instance = Drink.objects.get(pk=pk)
+	existing = LikesBeer.objects.filter(drink=instance, user=request.user).count()
+	if request.user.is_authenticated() and existing==0:
+		like = LikesBeer.objects.create_like(request.user, instance)
+		return redirect('barreviews:drink', pk=instance.id)
+	else:
+		return redirect('barreviews:drink', pk=instance.id)
+
+def drink_unlike(request, pk):
+	instance = Drink.objects.get(pk=pk)
+	existing = LikesBeer.objects.filter(drink=instance, user=request.user).count()
+	if request.user.is_authenticated() and existing==1:
+		like = LikesBeer.objects.get(drink=instance.pk, user=request.user)
+		like.delete()
+		return redirect('barreviews:drink', pk=instance.id)
+	else:
+		return redirect('barreviews:drink', pk=instance.id)
+
 def loggedin(request):
     return render_to_response('loggedin.html',
                               {'full_name': request.user.username})
@@ -146,7 +165,7 @@ def drink_edit(request, pk):
 		form = DrinkForm(request.POST, instance = instance)
 		if form.is_valid():
 			drink = form.save()
-			return redirect('barreviews:drink', pk=drink.id)
+			return redirect('barreviews:drink', pk=pid)
 	else:
 		form = DrinkForm(instance = instance)
 	return render(request, 'barreviews/drink_edit.html', {'form': form})
@@ -202,6 +221,17 @@ def review_add(request):
 	else:
 		form = ReviewForm()
 	return render(request, 'barreviews/review_add.html', {'form': form})
+
+def review_auth(request, pk):
+	comment = request.POST.get('comment', '')
+	rating = request.POST.get('rating', '')
+	bar_temp = Bar.objects.get(pk=pk)
+	if comment is not None and rating is not None and request.user.is_active:
+		new_review = ReviewBar.objects.create_review(request.user, bar_temp, rating, comment)
+		return redirect('barreviews:bar', pk=pk)
+	else:
+		# Show an error page
+		return redirect('barreviews:bar', pk=pk)
 
 def review_edit(request, pk):
 	instance = ReviewBar.objects.get(pk=pk)
@@ -290,6 +320,14 @@ def comment_delete(request, pk):
 	instance.delete()
 	return redirect('barreviews:user', pk=temp.user2.pk)
 
-
+def comment_auth(request, pk):
+	comment = request.POST.get('comment', '')
+	user_temp = User.objects.get(pk=pk)
+	if comment is not None and request.user.is_active:
+		new_comment = Comment.objects.create_comment(request.user, user_temp, comment)
+		return redirect('barreviews:user', pk=pk)
+	else:
+		# Show an error page
+		return redirect('barreviews:user', pk=pk)
 
 
