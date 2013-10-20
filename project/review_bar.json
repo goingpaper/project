@@ -26,5 +26,47 @@
 "date": "14 October 2020",
 "rating": "5",
 "comment": "Im a pretty princess, guys don't treat me right. I wish I had a manly prince to take me out to dinner."
+},
+
+{"user": "MattDawg",
+"bar": "Little Creatures",
+"date": "13 October 2013",
+"rating": "2",
+"comment": "Terrible Service"
+},
+
+{"user": "nrc196",
+"bar": "Little Creatures",
+"date": "18 October 2013",
+"rating": "3",
+"comment": "Meh"
+},
+
+{"user": "Colkadome",
+"bar": "Mojos Bar",
+"date": "12 October 2013",
+"rating": "2",
+"comment": "I have no idea why this bar even exists"
+},
+
+{"user": "nrc196",
+"bar": "Mojos Bar",
+"date": "11 October 2013",
+"rating": "5",
+"comment": "Love it"
+},
+
+{"user": "GoingPaper",
+"bar": "Five Bar",
+"date": "18 October 2013",
+"rating": "4",
+"comment": "Was good, although expensive"
+},
+
+{"user": "BeerBabe",
+"bar": "Little Creatures",
+"date": "30 October 2013",
+"rating": "3",
+"comment": "What terrific food, yet terrible waiters"
 }
 ]
