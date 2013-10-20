@@ -4,8 +4,8 @@ Bar
 ---------------------------------
 name pk	      		String
 address	      		String
-phone               String (optional)
-email	            String (optional)
+phone             	String (optional)
+email	            	String (optional)
 website	       		String (optional)
 yearEstablished		Integer (optional)
 description	     	String (optional)
@@ -16,16 +16,16 @@ User
 username pk	    	String
 password 	      	String
 email		        String
-first_name	  		String
+first_name	  	String
 last_name	    	String
-date_joined         Date
+date_joined         	Date
 is_staff	      	String
 
 
 Drink
 ---------------------------------
-name pk             String
-type                String
+name pk             	String
+type                	String
 brewery		      	String
 
 
@@ -36,17 +36,17 @@ name pk		        String
 
 ReviewBar
 ---------------------------------
-user			    User
-bar			        Bar
+user			User
+bar			Bar
 rating		      	Integer between 0 – 5
-date			    Date
+date			Date
 comment		       	String
 Primary Key(user, bar, date)
 
 
 LikesBeer
 ---------------------------------
-user                User
+user                	User
 drink		        Drink
 Primary Key(username, drinkName)
 
