@@ -3,7 +3,8 @@ beers and boys
 
 To run the application an installation of Django is required, the latest one can be found at
 https://www.djangoproject.com/download/ . Now to run the app in the project directory go to 
-project/project in terminal. To initialise the database type 'python manage.py syncdb' and to import the 
+project/project in terminal. To initialise the database type 'python manage.py syncdb'(The SQL code which creates 
+the tables can be accessed by the terminal command 'python manage.py sqlall barreviews') and to import the 
 data type 'export DJANGO_SETTINGS_MODULE=project.settings' and 'python import.py', now type
 'python manage.py runserver' to run the application.
 
