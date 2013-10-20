@@ -1,7 +1,8 @@
 {% extends 'barreviews/base.html' %}
 {% block content %}
-<h1>Home</h1>
-<h2>Use nav bar</h2>
+<h1>Beer Club</h1>
+<p>Welcome to Beer_Club.com, a place for bar and drink enthusiasts to dwell!</p>
+<img src="{{ MEDIA_URL }}beer.png">
 <h3><a href="{% url 'barreviews:login' %}">Login</a></h3>
 
 {% endblock %}
