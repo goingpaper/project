@@ -56,7 +56,7 @@ class ReviewBar(models.Model):
 		return '%s reviews %s' % (self.user , self.bar)
 
 	class Meta:
-		unique_together = ('user', 'bar', 'date')
+		unique_together = ('user', 'bar', 'date','comment')
 
 class LikesBeerManager(models.Manager):
 	def create_like(self, user, drink):
