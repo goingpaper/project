@@ -53,7 +53,7 @@ Primary Key(username, drinkName)
 
 Serves
 ---------------------------------
-bar		          	Bar
+bar		          Bar
 drink		        Drink
 onTap		        Boolean
 price		        Real
