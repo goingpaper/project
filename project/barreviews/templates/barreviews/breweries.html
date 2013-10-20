@@ -6,12 +6,20 @@
     <thead>
         <tr>
             <th>Brewery</th>
+            {% if user.is_staff %}
+            <th>Edit</th>
+            <th>Delete</th>
+            {% endif %}
         </tr>
     </thead>
     <tbody>
         {% for brewery in breweries %}
         <tr>
             <td><a href="{% url 'barreviews:brewery' brewery.id %}">{{ brewery.name }}</a></td>
+            {% if user.is_staff %}
+            <td><a href="{% url 'barreviews:brewery_edit' brewery.id %}">Edit</a></td>
+            <td><a href="{% url 'barreviews:brewery_delete' brewery.id %}">Delete</a></td>
+            {% endif %}
         </tr>
         {% endfor %}
     </tbody>
