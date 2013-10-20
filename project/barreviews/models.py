@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.forms import ModelForm
 
 # Create your models here.
 class Bar(models.Model):
@@ -31,7 +32,10 @@ class Drink(models.Model):
 	def __unicode__(self):
 		return self.name
 
-
+class ReviewBarManager(models.Manager):
+	def create_review(self, user, bar, rating, comment):
+		review = self.create(user=user, bar=bar, rating=rating, comment=comment)
+		return review
 	
 class ReviewBar(models.Model):
 	user = models.ForeignKey(User) # ? constraints
@@ -46,6 +50,7 @@ class ReviewBar(models.Model):
 	rating = models.IntegerField(choices=RATING_CHOICES)
 	date = models.DateField(auto_now_add=True)
 	comment = models.CharField(max_length=300)
+	objects = ReviewBarManager()
 #unable to make a multifield primary key in django
 	def __unicode__(self):
 		return '%s reviews %s' % (self.user , self.bar)
@@ -53,9 +58,15 @@ class ReviewBar(models.Model):
 	class Meta:
 		unique_together = ('user', 'bar', 'date')
 
+class LikesBeerManager(models.Manager):
+	def create_like(self, user, drink):
+		like = self.create(user=user, drink=drink)
+		return like
+
 class LikesBeer(models.Model):
 	user = models.ForeignKey(User)#changed
 	drink = models.ForeignKey(Drink)
+	objects = LikesBeerManager()
 
 	class Meta:
 		unique_together = ('user', 'drink')
@@ -75,12 +86,17 @@ class Serves(models.Model):
 	class Meta:
 		unique_together = ('bar', 'drink')
 
-	
+class CommentManager(models.Manager):
+	def create_comment(self, user1, user2, comment):
+		comment = self.create(user1=user1, user2=user2, comment=comment)
+		return comment
+
 class Comment(models.Model):
 	user1 = models.ForeignKey(User,related_name = 'source')
 	user2 = models.ForeignKey(User,related_name = 'target')
 	date = models.DateField(auto_now_add=True)
 	comment = models.CharField(max_length=300)
+	objects = CommentManager()
     
 	def __unicode__(self):
 		return '%s comments on %s' % (self.user1, self.user2)
