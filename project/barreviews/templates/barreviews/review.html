@@ -10,7 +10,7 @@
     <p>
         <strong>Comment:</strong> {{ review.comment|default:"" }}
     </p>
-{% if user == review.user %}
+{% if user == review.user or user.is_staff %}
 <p>
 <a href="{% url 'barreviews:review_edit' review.id %}">Edit Review</a>
 </p>
