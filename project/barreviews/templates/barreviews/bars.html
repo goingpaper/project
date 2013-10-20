@@ -8,13 +8,12 @@
             <th>Name</th>
             <th>Address</th>
             <th>Website</th>
-<<<<<<< HEAD
+
 			{% if user.is_staff %}
             <th>Edit Bar</th>
             <th>Delete Bar</th>
 			{% endif %}
-=======
->>>>>>> 18f8acfcbc188d23e00010df35a92ee734863e2d
+
         </tr>
     </thead>
     <tbody>
@@ -23,7 +22,7 @@
             <td><a href="{% url 'barreviews:bar' bar.id %}">{{ bar.name }}</a></td>
             <td>{{ bar.address }}</td>
             <td><a href="{{ bar.website }}">{{ bar.website }}</a></td>
-<<<<<<< HEAD
+
             {% if bar.id %}
 				{% if user.is_staff %}
 				<td><a href="{% url 'barreviews:bar_edit' bar.id %}">Edit</a></td>
@@ -33,8 +32,7 @@
             <td><a href="{% url 'barreviews:bar_edit' 1 %}">Edit</a></td>
             <td><a href="{% url 'barreviews:bar_delete' 1 %}">Delete</a></td>
             {% endif %}
-=======
->>>>>>> 18f8acfcbc188d23e00010df35a92ee734863e2d
+
         </tr>
         {% endfor %}
     </tbody>
