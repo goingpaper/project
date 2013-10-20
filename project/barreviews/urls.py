@@ -28,6 +28,9 @@ urlpatterns = patterns('',
                        url(r'^drink/(?P<pk>\d+)/edit/$', views.drink_edit, name='drink_edit'),
                        url(r'^drink/(?P<pk>\d+)/delete/$', views.drink_delete, name='drink_delete'),
                        
+                       url(r'^drink/(?P<pk>\d+)/like/$', views.drink_like, name='drink_like'),
+                       url(r'^drink/(?P<pk>\d+)/unlike/$', views.drink_unlike, name='drink_unlike'),
+                       
                        #USERS
                        url(r'^user/(?P<pk>\d+)/$', login_required(views.UserView.as_view()), name='user'),
                        url(r'^user/add/$', views.user_add, name='user_add'),
@@ -47,6 +50,8 @@ urlpatterns = patterns('',
                        url(r'^review/(?P<pk>\d+)/edit/$', views.review_edit, name='review_edit'),
                        url(r'^review/(?P<pk>\d+)/delete/$', views.review_delete, name='review_delete'),
                        
+                       url(r'^review/auth/(?P<pk>\d+)/$', views.review_auth, name='review_auth'),
+                       
                        #BREWERIES
                        url(r'^brewery/(?P<pk>\d+)/$', views.BreweryView.as_view(), name='brewery'),
                        url(r'^brewery/add/$', views.brewery_add, name='brewery_add'),
@@ -57,6 +62,8 @@ urlpatterns = patterns('',
                        url(r'^comment/(?P<pk>\d+)/$', views.CommentView.as_view(), name='comment'),
                        url(r'^comment/add/$', views.comment_add, name='comment_add'),
                        url(r'^comment/(?P<pk>\d+)/edit/$', views.comment_edit, name='comment_edit'),
-                       url(r'^comment/(?P<pk>\d+)/delete/$', views.comment_delete, name='comment_delete')
+                       url(r'^comment/(?P<pk>\d+)/delete/$', views.comment_delete, name='comment_delete'),
+                       
+                       url(r'^comment/auth/(?P<pk>\d+)/$', views.comment_auth, name='comment_auth')
                        )
   
