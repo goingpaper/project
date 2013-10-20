@@ -15,6 +15,8 @@ to one account with username 'admin' and password 'admin'. An example non-superu
 'GoingPaper' and password 'goingpaper_123'.
 
 After login on the main site a few different html pages can be accessed from hyperlinks in the header bar.
-The linked pages are Bars,Users,Drinks,Reviews and Breweries all of which contain tables of data according to
-the objects they hold. From each those pages individual detailed views of those objects can be accessed. Users have
-the ability to add reviews on any bar, like any listed berr and comment on any non-superusers page
+The linked pages are the Index page, Bars, Users, Drinks, Reviews, Breweries, Current User and a logout option. From each 
+of those pages individual detailed views of those objects can be accessed. Users have
+the ability to add reviews on any bar, like any listed drink and comment on any non-superusers page.
+
+
