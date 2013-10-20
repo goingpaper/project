@@ -14,7 +14,6 @@ urlpatterns = patterns('',
                        url(r'^drinks/$', views.DrinksView.as_view(), name='drinks'),
                        url(r'^reviews/$', views.ReviewsView.as_view(), name='reviews'),
                        url(r'^breweries/$', views.BreweriesView.as_view(), name='breweries'),
-                       url(r'^comments/$', views.CommentsView.as_view(), name='comments'),
                        
                        #BARS
                        url(r'^bar/(?P<pk>\d+)/$', views.BarView.as_view(), name='bar'),
@@ -59,7 +58,6 @@ urlpatterns = patterns('',
                        url(r'^brewery/(?P<pk>\d+)/delete/$', views.brewery_delete, name='brewery_delete'),
                        
                        #COMMENTS
-                       url(r'^comment/(?P<pk>\d+)/$', views.CommentView.as_view(), name='comment'),
                        url(r'^comment/add/$', views.comment_add, name='comment_add'),
                        url(r'^comment/(?P<pk>\d+)/edit/$', views.comment_edit, name='comment_edit'),
                        url(r'^comment/(?P<pk>\d+)/delete/$', views.comment_delete, name='comment_delete'),
