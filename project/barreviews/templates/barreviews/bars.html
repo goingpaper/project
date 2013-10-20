@@ -28,9 +28,7 @@
 				<td><a href="{% url 'barreviews:bar_edit' bar.id %}">Edit</a></td>
 				<td><a href="{% url 'barreviews:bar_delete' bar.id %}">Delete</a></td>
 				{% endif %}
-            {% else %}
-            <td><a href="{% url 'barreviews:bar_edit' 1 %}">Edit</a></td>
-            <td><a href="{% url 'barreviews:bar_delete' 1 %}">Delete</a></td>
+
             {% endif %}
 
         </tr>
