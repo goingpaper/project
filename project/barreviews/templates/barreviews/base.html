@@ -3,39 +3,56 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>Beer_Club.com</title>
-        <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" type="text/css">
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <script src="http://codeorigin.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
-        <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js" type="text/javascript"></script>
     </head>
     <body>
         <div class="container">
-            <div class="navbar">
-                <div class="navbar-inner">
-                    <a href="{% url 'barreviews:index' %}" class="brand">Beer_Club.com</a>
-                    <ul class="nav">
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Bars <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{% url 'barreviews:bars' %}">All Bars</a></li>
-                                <li><a href="{% url 'barreviews:bars' %}">Friend Recommendations</a></li>
-                                <li><a href="{% url 'barreviews:bars' %}">Drink Recommendations</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="{% url 'barreviews:users' %}">Users</a></li>
-                        <li><a href="{% url 'barreviews:drinks' %}">Drinks</a></li>
-                        <li><a href="{% url 'barreviews:reviews' %}">Reviews</a></li>
-                        <li><a href="{% url 'barreviews:breweries' %}">Breweries</a></li>
-                        {% if not user.is_active %}
-                        <li><a href="{% url 'barreviews:login' %}">LOGIN</a></li>
-                        {% else %}
-                        <li><a href="{% url 'barreviews:user' user.id %}">{{user.username}}</a></li>
-                        <li><a href="{% url 'barreviews:logout' %}">LOGOUT</a></li>
-                        {% endif %}
-                    </ul>
-                </div>
+        <nav class="navbar navbar-inverse" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'barreviews:index' %}">Beer_Club.com</a>
             </div>
-            {% block content %}
-            {% endblock %}
+            
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'barreviews:bars' %}">Bars</a></li>
+                    <li><a href="{% url 'barreviews:users' %}">Users</a></li>
+                    <li><a href="{% url 'barreviews:drinks' %}">Drinks</a></li>
+                    <li><a href="{% url 'barreviews:reviews' %}">Reviews</a></li>
+                    <li><a href="{% url 'barreviews:breweries' %}">Breweries</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    {% if not user.is_active %}
+                    <li><a href="{% url 'barreviews:login' %}">Login</a></li>
+                    {% else %}
+                    <li><a href="{% url 'barreviews:user' user.id %}">{{user.username}}</a></li>
+                    <li><a href="{% url 'barreviews:logout' %}">Logout</a></li>
+                    {% endif %}
+                    <li><a href="#">Sign Up</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </nav>
+        {% block content %}
+        {% endblock %}
         </div>
     </body>
 </html>

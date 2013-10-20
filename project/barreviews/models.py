@@ -101,8 +101,6 @@ class Comment(models.Model):
 	def __unicode__(self):
 		return '%s comments on %s' % (self.user1, self.user2)
 
-	class Meta:
-		unique_together = ('user1', 'user2','date')
 #max 5 digit number and 2 decimal places
 
 	

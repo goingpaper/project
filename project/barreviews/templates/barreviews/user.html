@@ -1,7 +1,7 @@
 {% extends 'barreviews/base.html' %}
 {% block content %}
     <h1>{{ usertemp }}</h1>
-	{% if user.username == usertemp.username %}
+	{% if user == usertemp %}
 	<h2><a href="{% url 'barreviews:logout' %}">Logout</a></h2>
 	{% endif %}
     <p>
@@ -19,7 +19,7 @@
     <p>
         <strong>User Type:</strong> {{ usertemp.is_staff }}
     </p>
-{% if user.username == usertemp.username %}
+{% if user == usertemp %}
 <p>
 <a href="{% url 'barreviews:user_edit' usertemp.id %}">Edit User</a>
 </p>
@@ -82,6 +82,7 @@
             <th>User</th>
             <th>Date</th>
             <th>Comment</th>
+            
         </tr>
     </thead>
     <tbody>
@@ -91,6 +92,9 @@
                 <td><a href="{% url 'barreviews:user' c.user1.id %}">{{ c.user1.username }}</a></td>
                 <td>{{ c.date }}</td>
                 <td>{{ c.comment }}</td>
+                {% if user == c.user1 %}
+                <td><a href="{% url 'barreviews:comment_delete' c.id %}">Delete</td>
+                {% endif %}
             </tr>
 
         {% endfor %}
