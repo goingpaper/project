@@ -1,6 +1,17 @@
 {% extends 'barreviews/base.html' %}
 {% block content %}
     <h1>{{ bar }}</h1>
+
+    {% if user.is_staff %}
+    <p>
+    <a href="{% url 'barreviews:bar_edit' bar.id %}">Edit Bar</a>
+    </p>
+    <p>
+    <a href="{% url 'barreviews:bar_delete' bar.id %}">Delete Bar</a>
+    </p>
+    {% endif %}
+
+
     <p>
         <strong>Address:</strong> {{ bar.address }}
     </p>
