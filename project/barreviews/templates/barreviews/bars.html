@@ -8,6 +8,10 @@
             <th>Name</th>
             <th>Address</th>
             <th>Website</th>
+            {% if user.is_staff %}
+            <th>Edit</th>
+            <th>Delete</th>
+            {% endif %}
         </tr>
     </thead>
     <tbody>
@@ -16,7 +20,10 @@
             <td><a href="{% url 'barreviews:bar' bar.id %}">{{ bar.name }}</a></td>
             <td>{{ bar.address }}</td>
             <td><a href="{{ bar.website }}">{{ bar.website }}</a></td>
-
+            {% if user.is_staff %}
+            <td><a href="{% url 'barreviews:bar_edit' bar.id %}">Edit</a></td>
+            <td><a href="{% url 'barreviews:bar_delete' bar.id %}">Delete</a></td>
+            {% endif %}
         </tr>
         {% endfor %}
     </tbody>
