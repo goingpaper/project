@@ -30,25 +30,6 @@ def auth_view(request):
 		# Show an error page
 		return HttpResponseRedirect("/accounts/invalid/")
 
-def drink_like(request, pk):
-	instance = Drink.objects.get(pk=pk)
-	existing = LikesBeer.objects.filter(drink=instance, user=request.user).count()
-	if request.user.is_authenticated() and existing==0:
-		like = LikesBeer.objects.create_like(request.user, instance)
-		return redirect('barreviews:drink', pk=instance.id)
-	else:
-		return redirect('barreviews:drink', pk=instance.id)
-
-def drink_unlike(request, pk):
-	instance = Drink.objects.get(pk=pk)
-	existing = LikesBeer.objects.filter(drink=instance, user=request.user).count()
-	if request.user.is_authenticated() and existing==1:
-		like = LikesBeer.objects.get(drink=instance.pk, user=request.user)
-		like.delete()
-		return redirect('barreviews:drink', pk=instance.id)
-	else:
-		return redirect('barreviews:drink', pk=instance.id)
-
 def loggedin(request):
     return render_to_response('loggedin.html',
                               {'full_name': request.user.username})
@@ -172,6 +153,25 @@ def drink_delete(request, pk):
 	instance.delete()
 	return redirect('barreviews:drinks')
 
+def drink_like(request, pk):
+	instance = Drink.objects.get(pk=pk)
+	existing = LikesBeer.objects.filter(drink=instance, user=request.user).count()
+	if request.user.is_authenticated() and existing==0:
+		like = LikesBeer.objects.create_like(request.user, instance)
+		return redirect('barreviews:drink', pk=instance.id)
+	else:
+		return redirect('barreviews:drink', pk=instance.id)
+
+def drink_unlike(request, pk):
+	instance = Drink.objects.get(pk=pk)
+	existing = LikesBeer.objects.filter(drink=instance, user=request.user).count()
+	if request.user.is_authenticated() and existing==1:
+		like = LikesBeer.objects.get(drink=instance.pk, user=request.user)
+		like.delete()
+		return redirect('barreviews:drink', pk=instance.id)
+	else:
+		return redirect('barreviews:drink', pk=instance.id)
+
 class UserView(generic.DetailView):
 	model = User
 	template_name = 'barreviews/user.html'
@@ -253,7 +253,6 @@ class BreweriesView(generic.ListView):
 	context_object_name = 'breweries'
 	
 	def get_queryset(self):
-		#return (x for x in range(0,1)) #
 		return Brewery.objects.all()
 
 class BreweryView(generic.DetailView):

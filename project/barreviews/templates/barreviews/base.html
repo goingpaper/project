@@ -47,7 +47,9 @@
                     <li><a href="{% url 'barreviews:user' user.id %}">{{user.username}}</a></li>
                     <li><a href="{% url 'barreviews:logout' %}">Logout</a></li>
                     {% endif %}
+					{% if not user.is_active %}
                     <li><a href="#">Sign Up</a></li>
+					{% endif %}
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>

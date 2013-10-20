@@ -67,7 +67,7 @@ class LikesBeer(models.Model):
 
 	class Meta:
 		unique_together = ('user', 'drink')
-    
+	
 	def __unicode__(self):
 		return '%s likes %s' % (self.user , self.drink)
 
@@ -94,7 +94,7 @@ class Comment(models.Model):
 	date = models.DateField(auto_now_add=True)
 	comment = models.CharField(max_length=300)
 	objects = CommentManager()
-    
+	
 	def __unicode__(self):
 		return '%s comments on %s' % (self.user1, self.user2)
 
