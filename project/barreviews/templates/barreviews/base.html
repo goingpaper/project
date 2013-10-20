@@ -25,6 +25,12 @@
                         <li><a href="{% url 'barreviews:drinks' %}">Drinks</a></li>
                         <li><a href="{% url 'barreviews:reviews' %}">Reviews</a></li>
                         <li><a href="{% url 'barreviews:breweries' %}">Breweries</a></li>
+                        {% if not user.is_active %}
+                        <li><a href="{% url 'barreviews:login' %}">LOGIN</a></li>
+                        {% else %}
+                        <li><a href="{% url 'barreviews:user' user.id %}">{{user.username}}</a></li>
+                        <li><a href="{% url 'barreviews:logout' %}">LOGOUT</a></li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
