@@ -30,6 +30,25 @@ def auth_view(request):
 		# Show an error page
 		return HttpResponseRedirect("/accounts/invalid/")
 
+def drink_like(request, pk):
+	instance = Drink.objects.get(pk=pk)
+	existing = LikesBeer.objects.filter(drink=instance, user=request.user).count()
+	if request.user.is_authenticated() and existing==0:
+		like = LikesBeer.objects.create_like(request.user, instance)
+		return redirect('barreviews:drink', pk=instance.id)
+	else:
+		return redirect('barreviews:drink', pk=instance.id)
+
+def drink_unlike(request, pk):
+	instance = Drink.objects.get(pk=pk)
+	existing = LikesBeer.objects.filter(drink=instance, user=request.user).count()
+	if request.user.is_authenticated() and existing==1:
+		like = LikesBeer.objects.get(drink=instance.pk, user=request.user)
+		like.delete()
+		return redirect('barreviews:drink', pk=instance.id)
+	else:
+		return redirect('barreviews:drink', pk=instance.id)
+
 def loggedin(request):
     return render_to_response('loggedin.html',
                               {'full_name': request.user.username})
@@ -54,6 +73,7 @@ class BarsView(generic.ListView):
 	context_object_name = 'bars'
 	
 	def get_queryset(self):
+		#return (x for x in range(0,1)) 
 		return Bar.objects.all()
 
 class UsersView(generic.ListView):
@@ -61,13 +81,14 @@ class UsersView(generic.ListView):
 	context_object_name = 'users'
 	
 	def get_queryset(self):
-		return User.objects.all()
+		return User.objects.exclude(is_superuser=True)
 
 class DrinksView(generic.ListView):
 	template_name = 'barreviews/drinks.html'
 	context_object_name = 'drinks'
 	
 	def get_queryset(self):
+		#return (x for x in range(0,1)) #
 		return Drink.objects.all().order_by('brewery__name')
 
 
@@ -76,6 +97,7 @@ class ReviewsView(generic.ListView):
 	context_object_name = 'reviews'
 	
 	def get_queryset(self):
+		#return (x for x in range(0,1)) 
 		return ReviewBar.objects.all()
 		
 class CommentsView(generic.ListView):
@@ -83,8 +105,8 @@ class CommentsView(generic.ListView):
 	context_object_name = 'comments'
 	
 	def get_queryset(self):
+		#return (x for x in range(0,1)) 
 		return Comment.objects.all()
-
 #More specific views below
 		
 class BarView(generic.DetailView):
@@ -92,6 +114,8 @@ class BarView(generic.DetailView):
 	template_name = 'barreviews/bar.html'
 
 def bar_add(request):
+	if not request.user.is_staff:
+		return redirect('barreviews:bars')
 	if request.method == "POST":
 		form = BarForm(request.POST)
 		if form.is_valid():
@@ -103,22 +127,21 @@ def bar_add(request):
 
 def bar_edit(request, pk):
 	print request.user.username, 'is staff?', request.user.is_staff
-	if request.user.is_staff:
-		instance = Bar.objects.get(pk=pk)
-		if request.method == "POST":
-			form = BarForm(request.POST, instance = instance)
-			if form.is_valid():
-				car = form.save()
-				return redirect('barreviews:bar', pk=bar.id)
-		else:
-			form = BarForm(instance = instance)
-		return render(request, 'barreviews/bar_edit.html', {'form': form})
-	else:
+	if not request.user.is_staff:
 		return redirect('barreviews:bars')
+	instance = Bar.objects.get(pk=pk)
+	if request.method == "POST":
+		form = BarForm(request.POST, instance = instance)
+		if form.is_valid():
+			car = form.save()
+			return redirect('barreviews:bar', pk=bar.id)
+	else:
+		form = BarForm(instance = instance)
+	return render(request, 'barreviews/bar_edit.html', {'form': form})
 
 def bar_delete(request, pk):
-	if not request.user.has_perm('barreviews.delete_bar'):
-		return redirect('barreviews:index')
+	if not request.user.is_staff:
+		return redirect('barreviews:bars')
 	instance = Bar.objects.get(pk=pk)
 	instance.delete()
 	return redirect('barreviews:bars')
@@ -128,6 +151,8 @@ class DrinkView(generic.DetailView):
 	template_name = 'barreviews/drink.html'
 
 def drink_add(request):
+	if not request.user.is_staff:
+		return redirect('barreviews:bars')
 	if request.method == "POST":
 		form = DrinkForm(request.POST)
 		if form.is_valid():
@@ -138,6 +163,8 @@ def drink_add(request):
 	return render(request, 'barreviews/drink_add.html', {'form': form})
 
 def drink_edit(request, pk):
+	if not request.user.is_staff:
+		return redirect('barreviews:bars')
 	instance = Drink.objects.get(pk=pk)
 	if request.method == "POST":
 		form = DrinkForm(request.POST, instance = instance)
@@ -149,28 +176,11 @@ def drink_edit(request, pk):
 	return render(request, 'barreviews/drink_edit.html', {'form': form})
 
 def drink_delete(request, pk):
+	if not request.user.is_staff:
+		return redirect('barreviews:bars')
 	instance = Drink.objects.get(pk=pk)
 	instance.delete()
 	return redirect('barreviews:drinks')
-
-def drink_like(request, pk):
-	instance = Drink.objects.get(pk=pk)
-	existing = LikesBeer.objects.filter(drink=instance, user=request.user).count()
-	if request.user.is_authenticated() and existing==0:
-		like = LikesBeer.objects.create_like(request.user, instance)
-		return redirect('barreviews:drink', pk=instance.id)
-	else:
-		return redirect('barreviews:drink', pk=instance.id)
-
-def drink_unlike(request, pk):
-	instance = Drink.objects.get(pk=pk)
-	existing = LikesBeer.objects.filter(drink=instance, user=request.user).count()
-	if request.user.is_authenticated() and existing==1:
-		like = LikesBeer.objects.get(drink=instance.pk, user=request.user)
-		like.delete()
-		return redirect('barreviews:drink', pk=instance.id)
-	else:
-		return redirect('barreviews:drink', pk=instance.id)
 
 class UserView(generic.DetailView):
 	model = User
@@ -189,6 +199,8 @@ def user_add(request):
 
 def user_edit(request, pk):
 	instance = User.objects.get(pk=pk)
+	if not request.user.pk == instance.pk and not request.user.is_staff:
+		return redirect('barreviews:user', pk=instance.pk)
 	if request.method == "POST":
 		form = UserForm(request.POST, instance = instance)
 		if form.is_valid():
@@ -199,6 +211,8 @@ def user_edit(request, pk):
 	return render(request, 'barreviews/user_edit.html', {'form': form})
 
 def user_delete(request, pk):
+	if not request.user.is_staff:
+		return redirect('barreviews:bars')
 	if int(request.user.id) == int(pk):
 		instance = User.objects.get(pk=pk)
 		instance.delete()
@@ -232,6 +246,8 @@ def review_auth(request, pk):
 
 def review_edit(request, pk):
 	instance = ReviewBar.objects.get(pk=pk)
+	if not request.user.pk == instance.user.pk and not request.user.is_staff:
+		return redirect('barreviews:bar', pk=instance.bar.id)
 	if request.method == "POST":
 		form = ReviewForm(request.POST, instance = instance)
 		if form.is_valid():
@@ -244,7 +260,7 @@ def review_edit(request, pk):
 def review_delete(request, pk):
 	instance = ReviewBar.objects.get(pk=pk)
 	temp = instance
-	if request.user.pk == instance.user.pk:
+	if request.user.pk == instance.user.pk or request.user.is_staff:
 		instance.delete()
 	return redirect('barreviews:bar', pk=temp.bar.id)
 	
@@ -253,6 +269,7 @@ class BreweriesView(generic.ListView):
 	context_object_name = 'breweries'
 	
 	def get_queryset(self):
+		#return (x for x in range(0,1)) #
 		return Brewery.objects.all()
 
 class BreweryView(generic.DetailView):
@@ -260,6 +277,8 @@ class BreweryView(generic.DetailView):
 	template_name = 'barreviews/brewery.html'
 
 def brewery_add(request):
+	if not request.user.is_staff:
+		return redirect('barreviews:bars')
 	if request.method == "POST":
 		form = BreweryForm(request.POST)
 		if form.is_valid():
@@ -270,6 +289,8 @@ def brewery_add(request):
 	return render(request, 'barreviews/brewery_add.html', {'form': form})
 
 def brewery_edit(request, pk):
+	if not request.user.is_staff:
+		return redirect('barreviews:bars')
 	instance = Brewery.objects.get(pk=pk)
 	if request.method == "POST":
 		form = BreweryForm(request.POST, instance = instance)
@@ -281,6 +302,8 @@ def brewery_edit(request, pk):
 	return render(request, 'barreviews/brewery_edit.html', {'form': form})
 
 def brewery_delete(request, pk):
+	if not request.user.is_staff:
+		return redirect('barreviews:bars')
 	instance = Brewery.objects.get(pk=pk)
 	instance.delete()
 	return redirect('barreviews:breweries')
@@ -303,6 +326,8 @@ def comment_add(request):
 
 def comment_edit(request, pk):
 	instance = Comment.objects.get(pk=pk)
+	if not request.user.pk == instance.user1.pk and not request.user.is_staff:
+		return redirect('barreviews:user', pk=instance.user2.id)
 	if request.method == "POST":
 		form = CommentForm(request.POST, instance = instance)
 		if form.is_valid():
@@ -315,7 +340,7 @@ def comment_edit(request, pk):
 def comment_delete(request, pk):
 	instance = Comment.objects.get(pk=pk)
 	temp = instance
-	if request.user.pk == instance.user1.pk:
+	if request.user.pk == instance.user1.pk or request.user.is_staff:
 		instance.delete()
 	return redirect('barreviews:user', pk=temp.user2.pk)
 
