@@ -19,12 +19,6 @@
     <p>
         <strong>Description:</strong> {{ bar.description|default:"" }}
     </p>
-<p>
-<a href="{% url 'barreviews:bar_edit' bar.id %}">Edit Bar</a>
-</p>
-<p>
-<a href="{% url 'barreviews:bar_delete' bar.id %}">Delete Bar</a>
-</p>
 
 <h3>Reviews - {{ bar.reviewbar_set.all.count }}</h3>
 {% if bar.reviewbar_set.all %}

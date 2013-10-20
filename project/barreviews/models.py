@@ -15,15 +15,12 @@ class Bar(models.Model):
 	def __unicode__(self):
 		return self.name
 	
-#<<<<<<< HEAD
 class Brewery(models.Model):
 	name = models.CharField(max_length=100,unique=True) #not sure
 	
 	def __unicode__(self):
 		return self.name
-	
-#=======
-#>>>>>>> 66c74678ea10f6d96cb5b822b777f6f1699b622f
+
 class Drink(models.Model):
 	brewery = models.ForeignKey(Brewery)
 	dType = models.CharField(max_length=100)

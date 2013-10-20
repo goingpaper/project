@@ -73,7 +73,6 @@ class BarsView(generic.ListView):
 	context_object_name = 'bars'
 	
 	def get_queryset(self):
-		#return (x for x in range(0,1)) 
 		return Bar.objects.all()
 
 class UsersView(generic.ListView):
@@ -81,14 +80,13 @@ class UsersView(generic.ListView):
 	context_object_name = 'users'
 	
 	def get_queryset(self):
-		return User.objects.exclude(is_superuser=True)
+		return User.objects.all()
 
 class DrinksView(generic.ListView):
 	template_name = 'barreviews/drinks.html'
 	context_object_name = 'drinks'
 	
 	def get_queryset(self):
-		#return (x for x in range(0,1)) #
 		return Drink.objects.all().order_by('brewery__name')
 
 
@@ -97,7 +95,6 @@ class ReviewsView(generic.ListView):
 	context_object_name = 'reviews'
 	
 	def get_queryset(self):
-		#return (x for x in range(0,1)) 
 		return ReviewBar.objects.all()
 		
 class CommentsView(generic.ListView):
@@ -105,8 +102,8 @@ class CommentsView(generic.ListView):
 	context_object_name = 'comments'
 	
 	def get_queryset(self):
-		#return (x for x in range(0,1)) 
 		return Comment.objects.all()
+
 #More specific views below
 		
 class BarView(generic.DetailView):
