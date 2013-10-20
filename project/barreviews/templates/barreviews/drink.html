@@ -15,6 +15,14 @@
 <a href="{% url 'barreviews:drink_unlike' drink.id %}">Unlike</a>
 </p>
 {% endif %}
+{% if user.is_staff %}
+<p>
+<a href="{% url 'barreviews:drink_edit' drink.id %}">Edit Drink</a>
+</p>
+<p>
+<a href="{% url 'barreviews:drink_delete' drink.id %}">Delete Drink</a>
+</p>
+{% endif %}
 
 <h3>Likes - {{ drink.likesbeer_set.all.count }}</h3>
 {% if drink.likesbeer_set.all %}
